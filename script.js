@@ -2,13 +2,13 @@ const portfolioSections = [
   {
     label: "What I Do",
     title: "What I Do",
-    subtitle: "Focus areas plus selected systems and builds.",
+    subtitle: "Core focus areas, enabling systems, and selected shipped work.",
     accent: "var(--accent-blue)",
     open: true,
     groups: [
       {
-        title: "What I'm Building",
-        subtitle: "Current product and research focus",
+        title: "Core Focus",
+        subtitle: "The problem spaces I actively design and build around",
         open: true,
         items: [
           {
@@ -38,52 +38,8 @@ const portfolioSections = [
         ]
       },
       {
-        title: "What I Work With",
-        subtitle: "Tools and systems used most of the time",
-        open: true,
-        items: [
-          {
-            title: "Agent frameworks",
-            subtitle: "LangChain, LangGraph, LlamaIndex, and Hugging Face agents.",
-            status: "current",
-            chips: ["LangChain", "LangGraph", "LlamaIndex"]
-          },
-          {
-            title: "Agent architecture",
-            subtitle: "Tool-calling, knowledge graphs, orchestration, and evaluation.",
-            status: "current",
-            chips: ["tools", "knowledge graphs", "evaluation"]
-          },
-          {
-            title: "Retrieval infrastructure",
-            subtitle: "Vector databases and embedding pipelines.",
-            status: "current",
-            chips: ["Qdrant", "Chroma", "embeddings"]
-          }
-        ]
-      },
-      {
-        title: "Applied ML",
-        subtitle: "Modeling, data pipelines, and deployment-ready systems",
-        open: false,
-        items: [
-          {
-            title: "LLM and NLP pipelines",
-            subtitle: "Summarization, classification, and fine-tuning workflows.",
-            status: "current",
-            chips: ["NLP", "LLM", "fine-tuning"]
-          },
-          {
-            title: "Data and ML engineering",
-            subtitle: "PyTorch/TensorFlow, scikit-learn, and feature pipelines.",
-            status: "current",
-            chips: ["PyTorch", "TensorFlow", "scikit-learn"]
-          }
-        ]
-      },
-      {
-        title: "Agent Orchestration",
-        subtitle: "Systems that coordinate multi-agent workflows",
+        title: "Systems and Infrastructure",
+        subtitle: "Foundational runtimes, orchestration patterns, and retrieval layers",
         open: true,
         items: [
           {
@@ -101,12 +57,30 @@ const portfolioSections = [
             chips: ["Python", "runtime", "observability"],
             href: "https://github.com/rogue-socket/agentic-runtime",
             external: true
+          },
+          {
+            title: "Framework stack",
+            subtitle: "LangChain, LangGraph, LlamaIndex, and Hugging Face agents.",
+            status: "current",
+            chips: ["LangChain", "LangGraph", "LlamaIndex"]
+          },
+          {
+            title: "Orchestration patterns",
+            subtitle: "Tool-calling, knowledge graphs, orchestration, and evaluation.",
+            status: "current",
+            chips: ["tools", "knowledge graphs", "evaluation"]
+          },
+          {
+            title: "Retrieval infrastructure",
+            subtitle: "Vector databases and embedding pipelines.",
+            status: "current",
+            chips: ["Qdrant", "Chroma", "embeddings"]
           }
         ]
       },
       {
-        title: "Applied Agents",
-        subtitle: "Agents shipped into real-world workflows",
+        title: "Workflow Applications",
+        subtitle: "Domain-facing agents shipped into specific workflows",
         open: true,
         items: [
           {
@@ -126,21 +100,6 @@ const portfolioSections = [
             external: true
           },
           {
-            title: "Real Time VLM Pedagogy",
-            subtitle: "Vision + image processing pedagogy for math and guitar learning.",
-            status: "live",
-            chips: ["VLM", "OpenCV", "real-time"],
-            href: "https://github.com/rogue-socket/math-guitar-vlm",
-            external: true
-          }
-        ]
-      },
-      {
-        title: "Other Builds",
-        subtitle: "Additional prototypes and tools worth exploring",
-        open: false,
-        items: [
-          {
             title: "Agentic Article Writer",
             subtitle: "Agentic writer supporting multiple article styles.",
             status: "note",
@@ -157,19 +116,46 @@ const portfolioSections = [
             external: true
           },
           {
-            title: "Neural Network (NumPy)",
-            subtitle: "Neural network built from scratch using NumPy only.",
-            status: "note",
-            chips: ["NumPy", "from scratch"],
-            href: "https://github.com/rogue-socket/neural_network_numpy",
-            external: true
-          },
-          {
             title: "Scrollable",
             subtitle: "Agent controlling Android devices for real-world tasks.",
             status: "note",
             chips: ["mobile", "automation"],
             href: "https://github.com/rogue-socket/scroller",
+            external: true
+          }
+        ]
+      },
+      {
+        title: "ML Foundations and Experiments",
+        subtitle: "Adjacent work spanning VLMs, ML pipelines, and product exploration",
+        open: false,
+        items: [
+          {
+            title: "Real Time VLM Pedagogy",
+            subtitle: "Vision + image processing pedagogy for math and guitar learning.",
+            status: "live",
+            chips: ["VLM", "OpenCV", "real-time"],
+            href: "https://github.com/rogue-socket/math-guitar-vlm",
+            external: true
+          },
+          {
+            title: "LLM and NLP pipelines",
+            subtitle: "Summarization, classification, and fine-tuning workflows.",
+            status: "current",
+            chips: ["NLP", "LLM", "fine-tuning"]
+          },
+          {
+            title: "Data and ML engineering",
+            subtitle: "PyTorch/TensorFlow, scikit-learn, and feature pipelines.",
+            status: "current",
+            chips: ["PyTorch", "TensorFlow", "scikit-learn"]
+          },
+          {
+            title: "Neural Network (NumPy)",
+            subtitle: "Neural network built from scratch using NumPy only.",
+            status: "note",
+            chips: ["NumPy", "from scratch"],
+            href: "https://github.com/rogue-socket/neural_network_numpy",
             external: true
           },
           {
@@ -197,11 +183,12 @@ const portfolioSections = [
     title: "Experience",
     subtitle: "Industry roles and applied research internships.",
     accent: "var(--accent-slate)",
+    flat: true,
     open: true,
     groups: [
       {
-        title: "Industry",
-        subtitle: "Internships and applied engineering roles",
+        title: "Experience",
+        subtitle: "",
         open: true,
         items: [
           {
@@ -223,19 +210,6 @@ const portfolioSections = [
             chips: ["May - Jul 2024", "Hyderabad"]
           }
         ]
-      },
-      {
-        title: "Leadership",
-        subtitle: "Communication and community leadership",
-        open: false,
-        items: [
-          {
-            title: "Toastmasters International",
-            subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
-            status: "note",
-            chips: ["2023 - 2025", "leadership"]
-          }
-        ]
       }
     ]
   },
@@ -244,6 +218,7 @@ const portfolioSections = [
     title: "Education and Certifications",
     subtitle: "Academic background and professional certifications.",
     accent: "var(--accent-olive)",
+    resetGroupsOnOpen: true,
     open: false,
     groups: [
       {
@@ -253,21 +228,20 @@ const portfolioSections = [
         items: [
           {
             title: "Vellore Institute of Technology",
-            subtitle: "B.Tech in Computer Science (2022-2026), CGPA 9.42/10.0.",
+            highlight: "Computer Science Engineering",
+            subtitle: "B.Tech in Computer Science Engineering (2022-2026), CGPA 9.42/10.0.",
             status: "current",
-            chips: ["Vellore", "CSE"]
-          },
-          {
-            title: "Sri Chaitanya College of Education",
-            subtitle: "11th-12th (Math, Physics, Chemistry), 2020-2022.",
-            status: "live",
-            chips: ["MPC", "Hyderabad"]
-          },
-          {
-            title: "CHIREC International School",
-            subtitle: "High School Diploma (2020).",
-            status: "live",
-            chips: ["Hyderabad", "High School"]
+            chips: ["Vellore", "Computer Science Engineering"],
+            details: [
+              {
+                label: "Core",
+                text: "Computer Networks, Operating Systems, DBMS, Compiler Design, Software Engineering, Data Structures and Algorithms, and Object-Oriented Programming."
+              },
+              {
+                label: "Applied",
+                text: "Machine Learning, Deep Learning, Natural Language Processing, data mining, and related applied computing coursework."
+              }
+            ]
           }
         ]
       },
@@ -319,20 +293,20 @@ const portfolioSections = [
   {
     label: "Leadership",
     title: "Leadership and Interests",
-    subtitle: "Speaking, awards, and personal interests.",
+    subtitle: "Communication leadership and personal interests.",
     accent: "var(--accent-amber)",
     open: false,
     groups: [
       {
-        title: "Speaking and Awards",
-        subtitle: "Communication and recognition",
-        open: true,
+        title: "Leadership",
+        subtitle: "Communication and community leadership",
+        open: false,
         items: [
           {
-            title: "Maulana Abul Kalam Azad Debate Tournament",
-            subtitle: "Competitive debate participation and recognition.",
+            title: "Toastmasters International",
+            subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
             status: "note",
-            chips: ["debate", "speaking"]
+            chips: ["2023 - 2025", "leadership"]
           }
         ]
       },
@@ -428,6 +402,10 @@ function renderItem(section, group, item) {
   const tagName = item.href ? "a" : "article";
   const status = statusMap[item.status] ?? statusMap.current;
   const chipsLine = (item.chips || []).join(" · ");
+  const detailTerms = (item.details || []).flatMap((detail) => [detail.label, detail.text]);
+  const detailsMarkup = (item.details || [])
+    .map((detail) => `<p class="item-detail"><span class="item-detail-label">${detail.label}</span>${detail.text}</p>`)
+    .join("");
   const searchTerms = [
     section.label,
     section.title,
@@ -436,7 +414,8 @@ function renderItem(section, group, item) {
     item.title,
     item.subtitle,
     status.label,
-    ...(item.chips || [])
+    ...(item.chips || []),
+    ...detailTerms
   ]
     .join(" ")
     .toLowerCase();
@@ -461,6 +440,7 @@ function renderItem(section, group, item) {
           <h4 class="item-title">${item.title}</h4>
         </div>
         <p class="item-subtitle">${item.subtitle}</p>
+        ${detailsMarkup ? `<div class="item-detail-list">${detailsMarkup}</div>` : ""}
       </div>
       <div class="item-meta">
         ${chipsLine ? `<span class="chip-line">${chipsLine}</span>` : ""}
@@ -471,7 +451,7 @@ function renderItem(section, group, item) {
 
 function buildHighlights(items, limit) {
   return items
-    .map((item) => item.title)
+    .map((item) => item.highlight || item.title)
     .filter(Boolean)
     .slice(0, limit)
     .join(" · ");
@@ -480,7 +460,6 @@ function buildHighlights(items, limit) {
 function renderExplorer() {
   explorer.innerHTML = portfolioSections
     .map((section, sectionIndex) => {
-      const totalItems = section.groups.reduce((count, group) => count + group.items.length, 0);
       const sectionPanelId = `section-panel-${sectionIndex}`;
       const sectionId = section.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
       const sectionHighlights = buildHighlights(
@@ -496,6 +475,7 @@ function renderExplorer() {
             aria-expanded="${section.open}"
             aria-controls="${sectionPanelId}"
             data-default-expanded="${section.open}"
+            data-reset-groups-on-open="${section.resetGroupsOnOpen === true}"
           >
             <span class="section-accent" aria-hidden="true"></span>
             <span class="section-index">${formatCount(sectionIndex + 1)}</span>
@@ -506,7 +486,15 @@ function renderExplorer() {
             <span class="chevron" aria-hidden="true"></span>
           </button>
           <div id="${sectionPanelId}" class="section-body${section.open ? "" : " is-hidden"}">
-            ${section.groups
+            ${section.flat
+              ? `
+                <div class="group-items">
+                  ${section.groups
+                    .flatMap((group) => group.items.map((item) => renderItem(section, group, item)))
+                    .join("")}
+                </div>
+              `
+              : section.groups
               .map((group, groupIndex) => {
                 const groupPanelId = `group-panel-${sectionIndex}-${groupIndex}`;
                 const groupHighlights = buildHighlights(group.items, 2);
@@ -525,7 +513,6 @@ function renderExplorer() {
                         <p class="group-subtitle">${group.subtitle}</p>
                         ${groupHighlights ? `<p class="group-preview">${groupHighlights}</p>` : ""}
                       </span>
-                      <span class="group-count" data-total="${group.items.length}">${formatCount(group.items.length)} entries</span>
                       <span class="group-chevron" aria-hidden="true"></span>
                     </button>
                     <div id="${groupPanelId}" class="group-items${group.open ? "" : " is-hidden"}">
@@ -558,6 +545,16 @@ function restoreDefaults() {
   });
 }
 
+function restoreGroupDefaults(sectionElement) {
+  if (!sectionElement) {
+    return;
+  }
+
+  sectionElement.querySelectorAll(".group-header").forEach((toggle) => {
+    setExpanded(toggle, toggle.dataset.defaultExpanded === "true");
+  });
+}
+
 function updateCollapseAllVisibility() {
   if (!collapseAllButton) {
     return;
@@ -576,7 +573,16 @@ function bindExplorerInteractions() {
     }
 
     const expanded = toggle.getAttribute("aria-expanded") === "true";
-    setExpanded(toggle, !expanded);
+    const nextExpanded = !expanded;
+    setExpanded(toggle, nextExpanded);
+
+    if (
+      nextExpanded
+      && toggle.classList.contains("section-header")
+      && toggle.dataset.resetGroupsOnOpen === "true"
+    ) {
+      restoreGroupDefaults(toggle.closest(".section"));
+    }
   });
 
   if (collapseAllButton) {

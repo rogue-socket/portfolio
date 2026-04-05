@@ -186,7 +186,6 @@ html[data-theme="dark"] .theme-toggle::before {
 .section-index,
 .section-label,
 .section-count,
-.group-count,
 .chip,
 .search-count,
 .detail-label,
@@ -206,7 +205,6 @@ html[data-theme="dark"] .theme-toggle::before {
 .section-label,
 .section-index,
 .section-count,
-.group-count,
 .search-count,
 .detail-label,
 .breadcrumbs,
@@ -389,7 +387,7 @@ html[data-theme="dark"] .meta-row span {
 
 .group-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   padding: 16px 0 14px;
@@ -409,6 +407,27 @@ html[data-theme="dark"] .meta-row span {
 .group-title {
   font-size: 16px;
   font-weight: 530;
+}
+
+.item-detail-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.item-detail {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+.item-detail-label {
+  margin-right: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .group-items {
@@ -866,7 +885,6 @@ html[data-theme="dark"] .meta-row span {
 
   .section-accent,
   .section-index,
-  .group-count,
   .section-count,
   .chevron,
   .group-chevron {
