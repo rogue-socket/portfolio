@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Portfolio Index</title>
+  <meta
+    name="description"
+    content="An editorial portfolio interface for structured digital work, research systems, and selected projects."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-home">
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Portfolio Index</p>
+      <h1 class="hero-title">Your Name</h1>
+      <p class="hero-summary">
+        Interface designer and front-end collaborator building structured, readable
+        experiences for dense information, research workflows, and carefully paced products.
+      </p>
+      <div class="meta-row" aria-label="Portfolio metadata">
+        <span><span class="meta-label">Role</span> Designer and front-end</span>
+        <span><span class="meta-label">Focus</span> Editorial systems, prototypes, content structure</span>
+        <span><span class="meta-label">Experience</span> Product, interface, and freelance work since 2018</span>
+        <span><span class="meta-label">Base</span> Remote and hybrid</span>
+        <span><span class="meta-label">Availability</span> Select collaborations, 2026</span>
+      </div>
+    </header>
+
+    <section class="top-panels" aria-label="Overview panels">
+      <aside class="glass-panel legend-panel">
+        <div class="panel-head">
+          <p class="eyebrow">Legend</p>
+          <p class="panel-note">Muted color is used only as a classification cue.</p>
+        </div>
+        <div class="legend-grid">
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-sage);"></span>
+            <div>
+              <p class="legend-label">Practice</p>
+              <p class="legend-text">Methods, systems, and long-term capabilities.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-blue);"></span>
+            <div>
+              <p class="legend-label">Selected Work</p>
+              <p class="legend-text">Recent projects with fuller detail pages.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-slate);"></span>
+            <div>
+              <p class="legend-label">Experience</p>
+              <p class="legend-text">Roles, collaborations, and facilitation work.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-olive);"></span>
+            <div>
+              <p class="legend-label">Materials</p>
+              <p class="legend-text">Resume, references, process notes, and supporting artifacts.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-amber);"></span>
+            <div>
+              <p class="legend-label">Writing</p>
+              <p class="legend-text">Notes, essays, and public teaching material.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="--legend-color: var(--accent-rose);"></span>
+            <div>
+              <p class="legend-label">Contact</p>
+              <p class="legend-text">Direct routes for new work and conversation.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="glass-panel summary-panel" aria-label="Portfolio summary">
+        <p class="eyebrow">Summary</p>
+        <p class="summary-copy">
+          This portfolio is arranged as a working index rather than a campaign page.
+          Practice areas, shipped work, experience, public notes, and supporting materials
+          sit in one navigable structure so the relationship between them stays visible.
+        </p>
+      </section>
+    </section>
+
+    <section class="overview-grid" aria-label="Portfolio overview cards">
+      <article class="glass-panel overview-card">
+        <p class="card-kicker">Projects</p>
+        <h2>Make room for flagship work and the wider archive</h2>
+        <p>Feature detailed case studies, keep space for smaller projects, and leave room for future experiments or client systems.</p>
+        <div class="overview-links">
+          <a href="#selected-work">Browse selected work</a>
+          <a href="details/atlas-of-materials.html">Open a project detail page</a>
+        </div>
+      </article>
+      <article class="glass-panel overview-card">
+        <p class="card-kicker">Experience</p>
+        <h2>Show roles, contracts, and teaching work</h2>
+        <p>Keep staff roles, independent practice, advisory work, and workshop formats visible without turning the site into a resume dump.</p>
+        <div class="overview-links">
+          <a href="#experience">Review experience entries</a>
+          <a href="#practice">See adjacent practice areas</a>
+        </div>
+      </article>
+      <article class="glass-panel overview-card">
+        <p class="card-kicker">Materials</p>
+        <h2>Hold the supporting documents around the work</h2>
+        <p>Resume packets, references, process notes, and code samples can sit alongside the main portfolio instead of living elsewhere.</p>
+        <div class="overview-links">
+          <a href="#portfolio-materials">Browse portfolio materials</a>
+          <a href="#writing">Open notes and talks</a>
+        </div>
+      </article>
+      <article class="glass-panel overview-card">
+        <p class="card-kicker">Contact</p>
+        <h2>Keep the path to conversation direct</h2>
+        <p>Email, profiles, and availability stay visible at the same level as the work so the site can operate as a practical index.</p>
+        <div class="overview-links">
+          <a href="#contact">Jump to contact links</a>
+          <a href="mailto:hello@yourname.com">Start an inquiry</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="search-block" aria-label="Explorer search">
+      <label class="search-label" for="portfolio-search">Filter index</label>
+      <div class="search-row">
+        <input
+          id="portfolio-search"
+          type="search"
+          placeholder="Search work, roles, methods, notes, or documents"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <span id="search-count" class="search-count">00 entries</span>
+      </div>
+    </section>
+
+    <main aria-label="Portfolio explorer">
+      <div id="explorer" class="explorer"></div>
+      <p id="search-empty" class="glass-panel search-empty is-hidden">
+        No matching entries. Try a project title, medium, or topic.
+      </p>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
