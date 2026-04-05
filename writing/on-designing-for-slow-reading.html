@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On Designing for Slow Reading | Your Name</title>
+  <meta
+    name="description"
+    content="Essay about designing interfaces for slow reading and calmer navigation."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page post-page">
+  <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="index.html">Writing</a>
+      <span>/</span>
+      <span>On designing for slow reading</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Essay</p>
+      <h1 class="detail-title">On designing for slow reading</h1>
+      <p class="detail-summary">
+        Some interfaces are not supposed to accelerate people. They are supposed to help people stay with the material long enough to understand it.
+      </p>
+      <div class="post-meta-row" aria-label="Post metadata">
+        <span><span class="meta-label">Published</span> April 2026</span>
+        <span><span class="meta-label">Format</span> Essay</span>
+        <span><span class="meta-label">Focus</span> Reading, density, navigation</span>
+        <span><span class="meta-label">Length</span> 4 min</span>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <article class="post-article">
+        <p>
+          A surprising number of digital products are built as if every task should happen faster. That instinct makes sense for simple operations, but it weakens interfaces built for reading, comparison, or deliberation. When the task requires attention, speed is not the only metric that matters.
+        </p>
+        <p>
+          Research tools, archives, reference systems, internal knowledge bases, and many editorial products all ask people to stay with the material for a while. In those settings, a good interface often reduces switching, lowers visual noise, and gives the text or record enough room to be taken seriously.
+        </p>
+
+        <section class="post-section">
+          <h2>Design for the pace of the task</h2>
+          <p>
+            The useful question is not whether a page feels dynamic. The useful question is whether the page supports the tempo of the work. If the task is reading, synthesis, or judgment, then constant prompts to move, collapse, compare, and dismiss can become a form of friction rather than assistance.
+          </p>
+          <p>
+            Slower interfaces usually rely on clear hierarchy, predictable movement, and stable orientation. They let someone build familiarity with the structure instead of asking them to rediscover the interface every few seconds.
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Let the chrome step back</h2>
+          <p>
+            When reading is primary, interface chrome should remain present but quiet. Labels can be small. Filters can be visible without dominating. Counts and status indicators can stay available without becoming the visual headline.
+          </p>
+          <p>
+            This is less about minimalism than about restraint. The interface should still explain itself, but it should not compete with the content for authority.
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Use structure to reduce switching costs</h2>
+          <p>
+            Slow reading becomes possible when related material is nearby, cross-references are legible, and the user does not have to context-switch just to confirm a detail. Good structure shortens the path between the main record and the adjacent information required to interpret it.
+          </p>
+          <p>
+            That usually means calmer navigation, clearer metadata, and stronger relationships between primary content, annotation, and surrounding context.
+          </p>
+        </section>
+
+        <aside class="glass-panel post-note">
+          <p>
+            A calmer interface is not an aesthetic preference by itself. It is often a practical response to tasks where misreading has a higher cost than taking an extra second.
+          </p>
+        </aside>
+
+        <section class="glass-panel related-block post-footer" aria-label="Related links">
+          <p class="related-label">Continue</p>
+          <h2>More writing</h2>
+          <div class="related-links">
+            <a href="taxonomy-before-templates.html">Taxonomy before templates</a>
+            <a href="keeping-a-working-index.html">Keeping a working index</a>
+            <a href="index.html">Return to writing archive</a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

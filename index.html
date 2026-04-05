@@ -8,10 +8,32 @@
     name="description"
     content="An editorial portfolio interface for structured digital work, research systems, and selected projects."
   >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-home">
   <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="index.html">Index</a>
+        <a href="writing/index.html">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
     <header class="hero">
       <p class="eyebrow">Portfolio Index</p>
       <h1 class="hero-title">Your Name</h1>
@@ -115,7 +137,16 @@
         <p>Resume packets, references, process notes, and code samples can sit alongside the main portfolio instead of living elsewhere.</p>
         <div class="overview-links">
           <a href="#portfolio-materials">Browse portfolio materials</a>
-          <a href="#writing">Open notes and talks</a>
+          <a href="writing/index.html">Open the writing archive</a>
+        </div>
+      </article>
+      <article class="glass-panel overview-card">
+        <p class="card-kicker">Writing</p>
+        <h2>Keep essays, blog posts, and notes in one place</h2>
+        <p>A dedicated writing archive now gives longer essays, shorter posts, and reading lists their own space instead of leaving them as loose entries.</p>
+        <div class="overview-links">
+          <a href="writing/index.html">Open writing archive</a>
+          <a href="writing/on-designing-for-slow-reading.html">Read a featured post</a>
         </div>
       </article>
       <article class="glass-panel overview-card">
@@ -135,7 +166,7 @@
         <input
           id="portfolio-search"
           type="search"
-          placeholder="Search work, roles, methods, notes, or documents"
+          placeholder="Search work, roles, posts, notes, or documents"
           autocomplete="off"
           spellcheck="false"
         >
@@ -151,6 +182,7 @@
     </main>
   </div>
 
+  <script src="theme.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

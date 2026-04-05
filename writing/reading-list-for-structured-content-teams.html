@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading List for Structured Content Teams | Your Name</title>
+  <meta
+    name="description"
+    content="Reading list for teams working with structured content, archives, and editorial interfaces."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page post-page">
+  <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="index.html">Writing</a>
+      <span>/</span>
+      <span>Reading list for structured content teams</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Reading List</p>
+      <h1 class="detail-title">Reading list for structured content teams</h1>
+      <p class="detail-summary">
+        A short set of references and habits useful for teams working with archives, metadata, editorial systems, and information-rich interfaces.
+      </p>
+      <div class="post-meta-row" aria-label="Post metadata">
+        <span><span class="meta-label">Published</span> April 2026</span>
+        <span><span class="meta-label">Format</span> List</span>
+        <span><span class="meta-label">Focus</span> References, methods, reading practice</span>
+        <span><span class="meta-label">Length</span> 3 min</span>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <article class="post-article">
+        <p>
+          Structured content work sits at the intersection of editing, design, engineering, and classification. That mix means teams often benefit from reading across fields instead of staying inside one disciplinary silo.
+        </p>
+        <p>
+          The list below is intentionally compact. It is meant to help a team develop better instincts for archives, naming, retrieval, and calmer interface design rather than overwhelm people with a comprehensive bibliography.
+        </p>
+
+        <section class="post-section">
+          <h2>Useful things to keep in rotation</h2>
+          <ul class="post-list">
+            <li>Read at least one strong example of archive design and ask how records, summaries, and related items are connected.</li>
+            <li>Review a real taxonomy with the team and discuss where ambiguity still exists before building new templates.</li>
+            <li>Keep a short glossary for your internal system so labels stay stable across design, engineering, and editing.</li>
+            <li>Look at publishing systems as often as product dashboards. They tend to be better examples of hierarchy and pacing.</li>
+            <li>Study search and browse patterns together. Retrieval problems often reveal hidden weaknesses in the content model.</li>
+            <li>Preserve a few exemplary records as reference material when adding new content to the system.</li>
+          </ul>
+        </section>
+
+        <section class="post-section">
+          <h2>Why the reading matters</h2>
+          <p>
+            Teams working with structured content are constantly translating between human judgment and system rules. Reading across archives, editorial practices, and information architecture gives those teams more language for making that translation carefully.
+          </p>
+        </section>
+
+        <section class="glass-panel related-block post-footer" aria-label="Related links">
+          <p class="related-label">Continue</p>
+          <h2>More writing</h2>
+          <div class="related-links">
+            <a href="taxonomy-before-templates.html">Taxonomy before templates</a>
+            <a href="keeping-a-working-index.html">Keeping a working index</a>
+            <a href="index.html">Return to writing archive</a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

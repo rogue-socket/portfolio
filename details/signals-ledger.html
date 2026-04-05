@@ -8,10 +8,32 @@
     name="description"
     content="Project detail page for Signals Ledger, an editorial product system for tracking signals and decisions."
   >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="detail-page">
   <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="../writing/index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
     <nav class="breadcrumbs" aria-label="Breadcrumbs">
       <a href="../index.html">Index</a>
       <span>/</span>
@@ -85,5 +107,6 @@
       <p class="footer-note">Replace project copy, roles, and links with your own material as needed.</p>
     </main>
   </div>
+  <script src="../theme.js"></script>
 </body>
 </html>

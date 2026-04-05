@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Archive | Your Name</title>
+  <meta
+    name="description"
+    content="Writing archive for essays, blog posts, notes, and reading lists."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page writing-page">
+  <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <span>Writing</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Writing Archive</p>
+      <h1 class="detail-title">Journal, Essays, and Posts</h1>
+      <p class="detail-summary">
+        A dedicated place for longer essays, shorter blog posts, reading lists, and notes
+        that sit beside the portfolio instead of disappearing into a miscellaneous section.
+      </p>
+      <div class="meta-row" aria-label="Writing metadata">
+        <span><span class="meta-label">Formats</span> Essays, posts, lists, notes</span>
+        <span><span class="meta-label">Focus</span> Structure, interface design, editorial systems</span>
+        <span><span class="meta-label">Cadence</span> Ongoing and lightweight</span>
+        <span><span class="meta-label">Purpose</span> Public thinking and working references</span>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <section class="writing-layout" aria-label="Writing archive layout">
+        <div class="archive-column">
+          <section class="archive-group" aria-labelledby="essays-heading">
+            <div class="archive-group-head">
+              <div>
+                <p class="eyebrow">Essays</p>
+                <h2 id="essays-heading" class="archive-group-title">Longer arguments</h2>
+              </div>
+              <p class="archive-group-note">02 essays</p>
+            </div>
+
+            <a class="archive-row" href="on-designing-for-slow-reading.html">
+              <div class="archive-main">
+                <p class="archive-meta">Essay / April 2026</p>
+                <h3 class="archive-title">On designing for slow reading</h3>
+                <p class="archive-summary">A short essay on lowering interface tempo so people can actually read, compare, and remember what is in front of them.</p>
+              </div>
+              <div class="item-meta">
+                <span class="chip">essay</span>
+                <span class="chip">featured</span>
+              </div>
+            </a>
+
+            <a class="archive-row" href="taxonomy-before-templates.html">
+              <div class="archive-main">
+                <p class="archive-meta">Essay / April 2026</p>
+                <h3 class="archive-title">Taxonomy before templates</h3>
+                <p class="archive-summary">A field note on why content relationships and metadata usually need to be clarified before layout systems can do useful work.</p>
+              </div>
+              <div class="item-meta">
+                <span class="chip">essay</span>
+                <span class="chip">method</span>
+              </div>
+            </a>
+          </section>
+
+          <section class="archive-group" aria-labelledby="posts-heading">
+            <div class="archive-group-head">
+              <div>
+                <p class="eyebrow">Posts</p>
+                <h2 id="posts-heading" class="archive-group-title">Shorter notes</h2>
+              </div>
+              <p class="archive-group-note">01 post</p>
+            </div>
+
+            <a class="archive-row" href="keeping-a-working-index.html">
+              <div class="archive-main">
+                <p class="archive-meta">Post / April 2026</p>
+                <h3 class="archive-title">Keeping a working index</h3>
+                <p class="archive-summary">Why portfolio sites, research repositories, and note systems benefit from the same structural habits even when they serve different audiences.</p>
+              </div>
+              <div class="item-meta">
+                <span class="chip">post</span>
+                <span class="chip">systems</span>
+              </div>
+            </a>
+          </section>
+
+          <section class="archive-group" aria-labelledby="lists-heading">
+            <div class="archive-group-head">
+              <div>
+                <p class="eyebrow">Lists</p>
+                <h2 id="lists-heading" class="archive-group-title">References and reading</h2>
+              </div>
+              <p class="archive-group-note">01 list</p>
+            </div>
+
+            <a class="archive-row" href="reading-list-for-structured-content-teams.html">
+              <div class="archive-main">
+                <p class="archive-meta">Reading list / April 2026</p>
+                <h3 class="archive-title">Reading list for structured content teams</h3>
+                <p class="archive-summary">A compact list of books, practices, and habits useful for teams dealing with archives, metadata, and information-rich interfaces.</p>
+              </div>
+              <div class="item-meta">
+                <span class="chip">list</span>
+                <span class="chip">references</span>
+              </div>
+            </a>
+          </section>
+        </div>
+
+        <aside class="glass-panel archive-sidebar" aria-label="Writing archive notes">
+          <p class="eyebrow">Editorial Note</p>
+          <p>
+            This archive is meant to hold different writing tempos in one place: longer essays,
+            shorter posts, reference lists, and working notes that are still useful to publish.
+          </p>
+          <p>
+            The structure stays close to the rest of the portfolio so writing can feel like part of the practice,
+            not an unrelated appendix.
+          </p>
+          <div class="archive-links">
+            <a href="on-designing-for-slow-reading.html">Read the featured essay</a>
+            <a href="keeping-a-working-index.html">Open the latest post</a>
+            <a href="../index.html">Return to the portfolio index</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

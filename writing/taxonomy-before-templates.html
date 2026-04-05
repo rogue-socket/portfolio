@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxonomy Before Templates | Your Name</title>
+  <meta
+    name="description"
+    content="Essay about defining taxonomy and relationships before designing interface templates."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page post-page">
+  <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="index.html">Writing</a>
+      <span>/</span>
+      <span>Taxonomy before templates</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Essay</p>
+      <h1 class="detail-title">Taxonomy before templates</h1>
+      <p class="detail-summary">
+        Teams often reach for layouts and components too early. The structure of the material usually needs attention first.
+      </p>
+      <div class="post-meta-row" aria-label="Post metadata">
+        <span><span class="meta-label">Published</span> April 2026</span>
+        <span><span class="meta-label">Format</span> Essay</span>
+        <span><span class="meta-label">Focus</span> Content models, metadata, hierarchy</span>
+        <span><span class="meta-label">Length</span> 4 min</span>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <article class="post-article">
+        <p>
+          When a site or product feels hard to navigate, the obvious temptation is to redesign the interface. Sometimes that is necessary. Just as often, the deeper problem is that the underlying material has not been named, grouped, or related clearly enough for any interface to carry it well.
+        </p>
+        <p>
+          Templates are useful, but they become brittle when they are asked to compensate for unclear categories. If a team has not agreed on what kinds of things exist, how those things differ, and what information travels with each of them, then even a polished layout will quickly start leaking inconsistencies.
+        </p>
+
+        <section class="post-section">
+          <h2>Start with things and relationships</h2>
+          <p>
+            Before drawing interface boxes, it helps to ask a simpler set of questions. What are the core entities? What makes one entry different from another? Which fields are essential and which are conditional? What relationships should stay visible because they influence interpretation?
+          </p>
+          <p>
+            Those decisions create the real foundation for browsing, filtering, and cross-linking later. They also make editorial work easier because the system stops depending on ad hoc exceptions.
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Use templates after the model is stable enough</h2>
+          <p>
+            Templates become more powerful when they are built on top of a content model that already carries intent. At that point, templates stop being decorative containers and start becoming reliable readers of the structure underneath.
+          </p>
+          <p>
+            This sequence also makes collaboration easier. Designers, engineers, and editors can discuss the same objects instead of arguing indirectly through page layouts.
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Let metadata do useful work</h2>
+          <p>
+            Good metadata reduces explanatory burden across the whole system. It supports search, archive browsing, summaries, related links, and clearer review. It can also help smaller teams avoid re-explaining the same distinctions every time a new entry is added.
+          </p>
+        </section>
+
+        <aside class="glass-panel post-note">
+          <p>
+            A template can only be as honest as the structure it is built to display. If the categories are weak, the page will eventually inherit that weakness.
+          </p>
+        </aside>
+
+        <section class="glass-panel related-block post-footer" aria-label="Related links">
+          <p class="related-label">Continue</p>
+          <h2>More writing</h2>
+          <div class="related-links">
+            <a href="on-designing-for-slow-reading.html">On designing for slow reading</a>
+            <a href="reading-list-for-structured-content-teams.html">Reading list for structured content teams</a>
+            <a href="index.html">Return to writing archive</a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

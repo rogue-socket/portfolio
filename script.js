@@ -262,10 +262,24 @@ const portfolioSections = [
   {
     label: "Writing",
     title: "Notes and Talks",
-    subtitle: "Short essays, teaching sessions, and public material around structure and interface clarity.",
+    subtitle: "Essays, blog posts, teaching sessions, and public material around structure and interface clarity.",
     accent: "var(--accent-amber)",
     open: false,
     groups: [
+      {
+        title: "Archive",
+        subtitle: "A dedicated place for essays, blog posts, and shorter notes",
+        open: true,
+        items: [
+          {
+            title: "Writing archive",
+            subtitle: "A standalone index for blog posts, essays, and reading lists with dedicated pages.",
+            status: "live",
+            chips: ["journal", "archive"],
+            href: "writing/index.html"
+          }
+        ]
+      },
       {
         title: "Essays",
         subtitle: "Published and internal writing",
@@ -275,19 +289,36 @@ const portfolioSections = [
             title: "On designing for slow reading",
             subtitle: "A short essay on pacing, density, and why some interfaces should lower tempo instead of increasing it.",
             status: "note",
-            chips: ["essay"]
+            chips: ["essay"],
+            href: "writing/on-designing-for-slow-reading.html"
           },
           {
             title: "Taxonomy before templates",
             subtitle: "A field note on structuring knowledge before designing chrome or component wrappers.",
             status: "note",
-            chips: ["method"]
+            chips: ["method"],
+            href: "writing/taxonomy-before-templates.html"
           },
           {
             title: "Reading list for structured content teams",
             subtitle: "A compact set of references on taxonomy, archives, and editorial interface design.",
             status: "note",
-            chips: ["reading list"]
+            chips: ["reading list"],
+            href: "writing/reading-list-for-structured-content-teams.html"
+          }
+        ]
+      },
+      {
+        title: "Posts",
+        subtitle: "Shorter notes that can be published more frequently",
+        open: false,
+        items: [
+          {
+            title: "Keeping a working index",
+            subtitle: "A short post on why portfolio sites, research archives, and notes benefit from the same structural habits.",
+            status: "note",
+            chips: ["post"],
+            href: "writing/keeping-a-working-index.html"
           }
         ]
       },

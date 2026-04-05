@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keeping a Working Index | Your Name</title>
+  <meta
+    name="description"
+    content="Short post about using indexes as a practical structure across portfolios, archives, and notes."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page post-page">
+  <div class="page-shell">
+    <div class="utility-bar" aria-label="Site utilities">
+      <nav class="utility-links" aria-label="Primary links">
+        <a href="../index.html">Index</a>
+        <a href="index.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="index.html">Writing</a>
+      <span>/</span>
+      <span>Keeping a working index</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Post</p>
+      <h1 class="detail-title">Keeping a working index</h1>
+      <p class="detail-summary">
+        A portfolio, a research archive, and a note system are different things, but they all benefit from being arranged as living indexes instead of loose piles.
+      </p>
+      <div class="post-meta-row" aria-label="Post metadata">
+        <span><span class="meta-label">Published</span> April 2026</span>
+        <span><span class="meta-label">Format</span> Post</span>
+        <span><span class="meta-label">Focus</span> Structure, maintenance, reuse</span>
+        <span><span class="meta-label">Length</span> 2 min</span>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <article class="post-article">
+        <p>
+          Indexes are useful because they make ongoing change legible. A finished gallery can look polished, but it often hides the relationships between projects, references, and working methods. An index keeps those relationships visible.
+        </p>
+
+        <section class="post-section">
+          <h2>Indexes support growth</h2>
+          <p>
+            A working index can absorb small additions more gracefully than a heavily curated landing page. New projects, posts, references, and documents can enter the system without forcing a redesign every time the portfolio grows.
+          </p>
+        </section>
+
+        <section class="post-section">
+          <h2>Indexes preserve context</h2>
+          <p>
+            They also make it easier to show how different pieces of work relate to one another. A project can connect to a note, a reading list can connect to a method, and a role history can sit beside the work it helped produce.
+          </p>
+        </section>
+
+        <section class="glass-panel related-block post-footer" aria-label="Related links">
+          <p class="related-label">Continue</p>
+          <h2>More writing</h2>
+          <div class="related-links">
+            <a href="on-designing-for-slow-reading.html">On designing for slow reading</a>
+            <a href="reading-list-for-structured-content-teams.html">Reading list for structured content teams</a>
+            <a href="index.html">Return to writing archive</a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>
