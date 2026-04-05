@@ -1,9 +1,9 @@
 const portfolioSections = [
   {
-    label: "Practice",
-    title: "Focus Areas",
-    subtitle: "Agentic systems, structured reasoning, and production LLM work.",
-    accent: "var(--accent-sage)",
+    label: "What I Do",
+    title: "What I Do",
+    subtitle: "Focus areas plus selected systems and builds.",
+    accent: "var(--accent-blue)",
     open: true,
     groups: [
       {
@@ -80,16 +80,7 @@ const portfolioSections = [
             chips: ["PyTorch", "TensorFlow", "scikit-learn"]
           }
         ]
-      }
-    ]
-  },
-  {
-    label: "Selected Work",
-    title: "Selected Projects",
-    subtitle: "A short list of agentic systems and applied AI builds.",
-    accent: "var(--accent-blue)",
-    open: true,
-    groups: [
+      },
       {
         title: "Agent Orchestration",
         subtitle: "Systems that coordinate multi-agent workflows",
@@ -140,6 +131,61 @@ const portfolioSections = [
             status: "live",
             chips: ["VLM", "OpenCV", "real-time"],
             href: "https://github.com/rogue-socket/math-guitar-vlm",
+            external: true
+          }
+        ]
+      },
+      {
+        title: "Other Builds",
+        subtitle: "Additional prototypes and tools worth exploring",
+        open: false,
+        items: [
+          {
+            title: "Agentic Article Writer",
+            subtitle: "Agentic writer supporting multiple article styles.",
+            status: "note",
+            chips: ["writing", "agents"],
+            href: "https://github.com/rogue-socket/agentic_article_writer",
+            external: true
+          },
+          {
+            title: "Doctor Reporting",
+            subtitle: "Agentic flow for auto-generated consultation reports.",
+            status: "note",
+            chips: ["healthcare", "reports"],
+            href: "https://github.com/rogue-socket/doctor_reporting",
+            external: true
+          },
+          {
+            title: "Neural Network (NumPy)",
+            subtitle: "Neural network built from scratch using NumPy only.",
+            status: "note",
+            chips: ["NumPy", "from scratch"],
+            href: "https://github.com/rogue-socket/neural_network_numpy",
+            external: true
+          },
+          {
+            title: "Scrollable",
+            subtitle: "Agent controlling Android devices for real-world tasks.",
+            status: "note",
+            chips: ["mobile", "automation"],
+            href: "https://github.com/rogue-socket/scroller",
+            external: true
+          },
+          {
+            title: "LearnWithMe",
+            subtitle: "Community site to find people to learn and grow with.",
+            status: "note",
+            chips: ["community", "web"],
+            href: "https://github.com/rogue-socket/agentic_article_writer",
+            external: true
+          },
+          {
+            title: "Notes Me",
+            subtitle: "Android app designed as a second brain.",
+            status: "note",
+            chips: ["android", "knowledge"],
+            href: "https://github.com/rogue-socket/notes_me",
             external: true
           }
         ]
@@ -365,9 +411,7 @@ const portfolioSections = [
 ];
 
 const explorer = document.getElementById("explorer");
-const searchInput = document.getElementById("portfolio-search");
-const searchCount = document.getElementById("search-count");
-const searchEmpty = document.getElementById("search-empty");
+const collapseAllButton = document.getElementById("collapse-all");
 
 const statusMap = {
   current: { label: "Current", color: "var(--accent-sage)" },
@@ -383,6 +427,7 @@ function formatCount(value) {
 function renderItem(section, group, item) {
   const tagName = item.href ? "a" : "article";
   const status = statusMap[item.status] ?? statusMap.current;
+  const chipsLine = (item.chips || []).join(" · ");
   const searchTerms = [
     section.label,
     section.title,
@@ -418,10 +463,18 @@ function renderItem(section, group, item) {
         <p class="item-subtitle">${item.subtitle}</p>
       </div>
       <div class="item-meta">
-        ${(item.chips || []).map((chip) => `<span class="chip">${chip}</span>`).join("")}
+        ${chipsLine ? `<span class="chip-line">${chipsLine}</span>` : ""}
       </div>
     </${tagName}>
   `;
+}
+
+function buildHighlights(items, limit) {
+  return items
+    .map((item) => item.title)
+    .filter(Boolean)
+    .slice(0, limit)
+    .join(" · ");
 }
 
 function renderExplorer() {
@@ -430,6 +483,10 @@ function renderExplorer() {
       const totalItems = section.groups.reduce((count, group) => count + group.items.length, 0);
       const sectionPanelId = `section-panel-${sectionIndex}`;
       const sectionId = section.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const sectionHighlights = buildHighlights(
+        section.groups.flatMap((group) => group.items),
+        3
+      );
 
       return `
         <section id="${sectionId}" class="section" style="--section-accent: ${section.accent}; --stagger: ${sectionIndex};">
@@ -443,19 +500,16 @@ function renderExplorer() {
             <span class="section-accent" aria-hidden="true"></span>
             <span class="section-index">${formatCount(sectionIndex + 1)}</span>
             <span class="section-copy">
-              <span class="section-copy-top">
-                <span class="section-label">${section.label}</span>
-              </span>
               <h2 class="section-title">${section.title}</h2>
-              <p class="section-subtitle">${section.subtitle}</p>
             </span>
-            <span class="section-count" data-total="${totalItems}">${formatCount(totalItems)} entries</span>
+            <span class="section-count">${sectionHighlights || ""}</span>
             <span class="chevron" aria-hidden="true"></span>
           </button>
           <div id="${sectionPanelId}" class="section-body${section.open ? "" : " is-hidden"}">
             ${section.groups
               .map((group, groupIndex) => {
                 const groupPanelId = `group-panel-${sectionIndex}-${groupIndex}`;
+                const groupHighlights = buildHighlights(group.items, 2);
 
                 return `
                   <section class="group">
@@ -469,6 +523,7 @@ function renderExplorer() {
                       <span class="group-copy">
                         <h3 class="group-title">${group.title}</h3>
                         <p class="group-subtitle">${group.subtitle}</p>
+                        ${groupHighlights ? `<p class="group-preview">${groupHighlights}</p>` : ""}
                       </span>
                       <span class="group-count" data-total="${group.items.length}">${formatCount(group.items.length)} entries</span>
                       <span class="group-chevron" aria-hidden="true"></span>
@@ -489,8 +544,12 @@ function renderExplorer() {
 
 function setExpanded(toggle, expanded) {
   const panel = document.getElementById(toggle.getAttribute("aria-controls"));
+  if (!panel) {
+    return;
+  }
   toggle.setAttribute("aria-expanded", String(expanded));
   panel.classList.toggle("is-hidden", !expanded);
+  updateCollapseAllVisibility();
 }
 
 function restoreDefaults() {
@@ -499,76 +558,20 @@ function restoreDefaults() {
   });
 }
 
-function updateCounts(queryActive) {
-  let visibleItems = 0;
-
-  explorer.querySelectorAll(".group").forEach((group) => {
-    const items = Array.from(group.querySelectorAll(".item-row"));
-    const visible = items.filter((item) => !item.classList.contains("is-hidden")).length;
-    const countNode = group.querySelector(".group-count");
-    countNode.textContent = queryActive
-      ? `${formatCount(visible)} matches`
-      : `${formatCount(Number(countNode.dataset.total))} entries`;
-    visibleItems += visible;
-  });
-
-  explorer.querySelectorAll(".section").forEach((section) => {
-    const visible = Array.from(section.querySelectorAll(".item-row")).filter(
-      (item) => !item.classList.contains("is-hidden")
-    ).length;
-    const countNode = section.querySelector(".section-count");
-    countNode.textContent = queryActive
-      ? `${formatCount(visible)} matches`
-      : `${formatCount(Number(countNode.dataset.total))} entries`;
-  });
-
-  searchCount.textContent = queryActive
-    ? `${formatCount(visibleItems)} matches`
-    : `${formatCount(visibleItems)} entries`;
-  searchEmpty.classList.toggle("is-hidden", visibleItems > 0);
-}
-
-function applySearch(rawQuery) {
-  const query = rawQuery.trim().toLowerCase();
-  const queryActive = query.length > 0;
-
-  explorer.querySelectorAll(".item-row").forEach((item) => {
-    const matches = !queryActive || item.dataset.search.includes(query);
-    item.classList.toggle("is-hidden", !matches);
-  });
-
-  explorer.querySelectorAll(".group").forEach((group) => {
-    const visibleItems = group.querySelectorAll(".item-row:not(.is-hidden)").length;
-    group.classList.toggle("is-hidden", visibleItems === 0);
-
-    const toggle = group.querySelector(".group-header");
-    if (queryActive && visibleItems > 0) {
-      setExpanded(toggle, true);
-    }
-  });
-
-  explorer.querySelectorAll(".section").forEach((section) => {
-    const visibleGroups = section.querySelectorAll(".group:not(.is-hidden)").length;
-    section.classList.toggle("is-hidden", visibleGroups === 0);
-
-    const toggle = section.querySelector(".section-header");
-    if (queryActive && visibleGroups > 0) {
-      setExpanded(toggle, true);
-    }
-  });
-
-  if (!queryActive) {
-    explorer.querySelectorAll(".group, .section").forEach((node) => node.classList.remove("is-hidden"));
-    restoreDefaults();
+function updateCollapseAllVisibility() {
+  if (!collapseAllButton) {
+    return;
   }
-
-  updateCounts(queryActive);
+  const anyExpanded = Array.from(
+    explorer.querySelectorAll(".section-header, .group-header")
+  ).some((toggle) => toggle.getAttribute("aria-expanded") === "true");
+  collapseAllButton.classList.toggle("is-hidden", !anyExpanded);
 }
 
 function bindExplorerInteractions() {
   explorer.addEventListener("click", (event) => {
     const toggle = event.target.closest(".section-header, .group-header");
-    if (!toggle || searchInput.value.trim()) {
+    if (!toggle) {
       return;
     }
 
@@ -576,11 +579,15 @@ function bindExplorerInteractions() {
     setExpanded(toggle, !expanded);
   });
 
-  searchInput.addEventListener("input", (event) => {
-    applySearch(event.target.value);
-  });
+  if (collapseAllButton) {
+    collapseAllButton.addEventListener("click", () => {
+      explorer.querySelectorAll(".section-header, .group-header").forEach((toggle) => {
+        setExpanded(toggle, false);
+      });
+    });
+  }
 }
 
 renderExplorer();
 bindExplorerInteractions();
-applySearch("");
+updateCollapseAllVisibility();
