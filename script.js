@@ -1,71 +1,83 @@
 const portfolioSections = [
   {
     label: "Practice",
-    title: "Practice Areas",
-    subtitle: "Ongoing lines of work across research, design systems, and front-end delivery.",
+    title: "Focus Areas",
+    subtitle: "Agentic systems, structured reasoning, and production LLM work.",
     accent: "var(--accent-sage)",
     open: true,
     groups: [
       {
-        title: "Interface Systems",
-        subtitle: "Navigation, density, and legibility for content-rich products",
+        title: "What I'm Building",
+        subtitle: "Current product and research focus",
         open: true,
         items: [
           {
-            title: "Navigation models for large information sets",
-            subtitle: "Tree views, cross-linking, progressive disclosure, and search behavior shaped for real reading.",
+            title: "AI agents and deliberate workflows",
+            subtitle: "Agent systems that are effective, efficient, and production-ready.",
             status: "current",
-            chips: ["UI architecture", "prototypes"]
+            chips: ["agents", "workflows", "LLMs"]
           },
           {
-            title: "Calm design language for dense applications",
-            subtitle: "Tokens, spacing rhythms, and restrained motion tuned for products that reward concentration.",
+            title: "Structured reasoning systems",
+            subtitle: "Tool-calling, orchestration, and decision traceability.",
             status: "current",
-            chips: ["systems", "accessibility"]
+            chips: ["reasoning", "orchestration", "tools"]
+          },
+          {
+            title: "Production-aware LLM backends",
+            subtitle: "Systems that hold up under real usage and constraints.",
+            status: "current",
+            chips: ["LLM backend", "latency", "reliability"]
+          },
+          {
+            title: "Evaluation pipelines",
+            subtitle: "Measuring output quality when vibes don't match.",
+            status: "current",
+            chips: ["evaluation", "benchmarks", "RAGAs"]
           }
         ]
       },
       {
-        title: "Research and Editing",
-        subtitle: "Turning raw inputs into structures people can browse and trust",
+        title: "What I Work With",
+        subtitle: "Tools and systems used most of the time",
         open: true,
         items: [
           {
-            title: "Editorial schemas for notes, references, and source material",
-            subtitle: "Taxonomies and metadata models that make early research legible without flattening nuance.",
+            title: "Agent frameworks",
+            subtitle: "LangChain, LangGraph, LlamaIndex, and Hugging Face agents.",
             status: "current",
-            chips: ["taxonomy", "content ops"]
+            chips: ["LangChain", "LangGraph", "LlamaIndex"]
           },
           {
-            title: "Decision records and internal guidance",
-            subtitle: "Concise documentation for teams that need continuity across design, product, and engineering.",
+            title: "Agent architecture",
+            subtitle: "Tool-calling, knowledge graphs, orchestration, and evaluation.",
             status: "current",
-            chips: ["documentation", "facilitation"]
+            chips: ["tools", "knowledge graphs", "evaluation"]
+          },
+          {
+            title: "Retrieval infrastructure",
+            subtitle: "Vector databases and embedding pipelines.",
+            status: "current",
+            chips: ["Qdrant", "Chroma", "embeddings"]
           }
         ]
       },
       {
-        title: "Delivery and Collaboration",
-        subtitle: "Shipping the work and pairing with teams without adding unnecessary process weight",
+        title: "Applied ML",
+        subtitle: "Modeling, data pipelines, and deployment-ready systems",
         open: false,
         items: [
           {
-            title: "Accessible interactions with lightweight JavaScript",
-            subtitle: "Small scripts for search, toggles, and filters instead of heavy client frameworks when they are not needed.",
-            status: "live",
-            chips: ["HTML", "CSS", "vanilla JS"]
+            title: "LLM and NLP pipelines",
+            subtitle: "Summarization, classification, and fine-tuning workflows.",
+            status: "current",
+            chips: ["NLP", "LLM", "fine-tuning"]
           },
           {
-            title: "Prototype-to-build pairing for product teams",
-            subtitle: "Working interfaces used for review, alignment, and tighter handoff between design and engineering.",
+            title: "Data and ML engineering",
+            subtitle: "PyTorch/TensorFlow, scikit-learn, and feature pipelines.",
             status: "current",
-            chips: ["handoff", "cross-functional"]
-          },
-          {
-            title: "Short audits for content-heavy products",
-            subtitle: "Focused reviews covering hierarchy, navigation, density, and calmer interaction patterns.",
-            status: "current",
-            chips: ["audit", "strategy"]
+            chips: ["PyTorch", "TensorFlow", "scikit-learn"]
           }
         ]
       }
@@ -74,67 +86,61 @@ const portfolioSections = [
   {
     label: "Selected Work",
     title: "Selected Projects",
-    subtitle: "Recent commissions and self-directed builds with a fuller project readout.",
+    subtitle: "A short list of agentic systems and applied AI builds.",
     accent: "var(--accent-blue)",
     open: true,
     groups: [
       {
-        title: "Research Interfaces",
-        subtitle: "Projects centered on browsing, filtering, and annotated reading",
+        title: "Agent Orchestration",
+        subtitle: "Systems that coordinate multi-agent workflows",
         open: true,
         items: [
           {
-            title: "Atlas of Materials",
-            subtitle: "A reference browser for a materials studio working across samples, provenance, and supplier notes.",
+            title: "ClosedClaw",
+            subtitle: "Framework for automated agent creation, deployment, orchestration, and storage.",
             status: "live",
-            chips: ["case study", "interface"],
-            href: "details/atlas-of-materials.html"
+            chips: ["LangGraph", "LangChain", "MCP"],
+            href: "https://github.com/rogue-socket/closed_claw",
+            external: true
           },
           {
-            title: "Signals Ledger",
-            subtitle: "An editorial ledger for tracking signals, commentary, and decision context without the feel of a dashboard.",
+            title: "ForrestRun",
+            subtitle: "Agentic runtime to design, fix, and teach agents with tracing and replay.",
             status: "live",
-            chips: ["product", "taxonomy"],
-            href: "details/signals-ledger.html"
+            chips: ["Python", "runtime", "observability"],
+            href: "https://github.com/rogue-socket/agentic-runtime",
+            external: true
           }
         ]
       },
       {
-        title: "Archive Tools",
-        subtitle: "Systems for turning raw field material into reusable working knowledge",
+        title: "Applied Agents",
+        subtitle: "Agents shipped into real-world workflows",
         open: true,
         items: [
           {
-            title: "Field Notes Archive",
-            subtitle: "A browsing layer for interviews, transcripts, and workshop notes designed like an annotated reading room.",
-            status: "current",
-            chips: ["archive", "prototype"],
-            href: "details/field-notes-archive.html"
+            title: "MyCompAgent",
+            subtitle: "Browser control agent using Playwright CLI with adaptive memory.",
+            status: "live",
+            chips: ["Playwright", "automation", "agent memory"],
+            href: "https://github.com/rogue-socket/mycompagent",
+            external: true
           },
           {
-            title: "Source Map Library",
-            subtitle: "A source browser for tracing references, excerpts, and editorial summaries through an ongoing research program.",
-            status: "current",
-            chips: ["library", "research"]
-          }
-        ]
-      },
-      {
-        title: "Sites and Systems",
-        subtitle: "Portfolio sites, publishing surfaces, and compact product layers",
-        open: false,
-        items: [
-          {
-            title: "Editorial Portfolio System",
-            subtitle: "A portfolio shell for presenting project context, experience, and supporting material in one continuous structure.",
+            title: "Aqua Twin",
+            subtitle: "Agentic control of a water-management digital twin with telemetry and actions.",
             status: "live",
-            chips: ["portfolio", "system"]
+            chips: ["simulation", "control", "LangGraph"],
+            href: "https://github.com/rogue-socket/AquaTwin-Web",
+            external: true
           },
           {
-            title: "Program Notes Microsite",
-            subtitle: "A publishing interface for a cultural program balancing event listings, essays, and archival documents.",
+            title: "Real Time VLM Pedagogy",
+            subtitle: "Vision + image processing pedagogy for math and guitar learning.",
             status: "live",
-            chips: ["publishing", "site"]
+            chips: ["VLM", "OpenCV", "real-time"],
+            href: "https://github.com/rogue-socket/math-guitar-vlm",
+            external: true
           }
         ]
       }
@@ -143,201 +149,169 @@ const portfolioSections = [
   {
     label: "Experience",
     title: "Experience",
-    subtitle: "Roles, collaborations, and teaching formats that support product, interface, and content work.",
+    subtitle: "Industry roles and applied research internships.",
     accent: "var(--accent-slate)",
     open: true,
     groups: [
       {
-        title: "Recent Roles",
-        subtitle: "Independent work, product teams, and long-form collaborations",
+        title: "Industry",
+        subtitle: "Internships and applied engineering roles",
         open: true,
         items: [
           {
-            title: "Independent Interface Designer",
-            subtitle: "Selected freelance practice spanning research interfaces, design systems, and front-end prototypes for small teams.",
+            title: "Developer Intern, Siemens EDA",
+            subtitle: "Built LangGraph workflows in Siemens Capital Copilot and developed an agentic productivity framework.",
             status: "current",
-            chips: ["2023-now", "independent"]
+            chips: ["Jan 2026 - Present", "Hyderabad"]
           },
           {
-            title: "Senior Product Designer, Studio North",
-            subtitle: "Led structure, hierarchy, and interaction design for complex internal tools and content-rich workflows.",
+            title: "Software Engineering Intern, DocLens.ai",
+            subtitle: "Developed medical necessity evaluation and RAG pipelines for insurance workflows.",
             status: "live",
-            chips: ["2020-2023", "product"]
+            chips: ["May - Jul 2025", "Bengaluru"]
           },
           {
-            title: "Front-end Design Partner",
-            subtitle: "Worked across contract engagements translating prototype intent into shipped interfaces and shared UI patterns.",
+            title: "AI Engineering Intern, Bicycle AI",
+            subtitle: "Improved context-aware SQL generation and built LLM benchmarking frameworks.",
             status: "live",
-            chips: ["2018-2020", "contract"]
+            chips: ["May - Jul 2024", "Hyderabad"]
           }
         ]
       },
       {
-        title: "Teaching and Facilitation",
-        subtitle: "Formats that support client teams beyond direct production work",
+        title: "Leadership",
+        subtitle: "Communication and community leadership",
         open: false,
         items: [
           {
-            title: "Content structure clinics",
-            subtitle: "Working sessions for teams reorganizing loose repositories into more navigable systems.",
+            title: "Toastmasters International",
+            subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
             status: "note",
-            chips: ["workshop", "facilitation"]
-          },
-          {
-            title: "Product critique and review sessions",
-            subtitle: "Focused critique for teams that need calmer hierarchy, better navigation, or stronger explanatory structure.",
-            status: "note",
-            chips: ["advisory", "review"]
+            chips: ["2023 - 2025", "leadership"]
           }
         ]
       }
     ]
   },
   {
-    label: "Portfolio Materials",
-    title: "Portfolio Materials",
-    subtitle: "Resume, references, process notes, and supporting documents that sit alongside the visible work.",
+    label: "Education",
+    title: "Education and Certifications",
+    subtitle: "Academic background and professional certifications.",
     accent: "var(--accent-olive)",
     open: false,
     groups: [
       {
-        title: "Documents",
-        subtitle: "Practical materials often requested alongside project work",
+        title: "Education",
+        subtitle: "Academic background",
         open: true,
         items: [
           {
-            title: "Resume and tailored case-study packet",
-            subtitle: "A compact document set that can be adapted for staff roles, freelance inquiries, or speaking opportunities.",
-            status: "open",
-            chips: ["resume", "PDF"]
+            title: "Vellore Institute of Technology",
+            subtitle: "B.Tech in Computer Science (2022-2026), CGPA 9.42/10.0.",
+            status: "current",
+            chips: ["Vellore", "CSE"]
           },
           {
-            title: "References and collaboration notes",
-            subtitle: "Short summaries of how projects were run, where value was created, and how teams worked together.",
-            status: "open",
-            chips: ["references", "context"]
-          }
-        ]
-      },
-      {
-        title: "Background",
-        subtitle: "Education, talks, and adjacent material that adds context",
-        open: false,
-        items: [
-          {
-            title: "Selected talks and guest sessions",
-            subtitle: "Teaching material and speaking formats centered on interface clarity, structure, and editorial systems.",
-            status: "note",
-            chips: ["speaking", "teaching"]
-          },
-          {
-            title: "Education and continuing study",
-            subtitle: "Formal training plus ongoing reading and practice around content systems, interaction design, and front-end craft.",
-            status: "note",
-            chips: ["education", "study"]
-          }
-        ]
-      },
-      {
-        title: "Process Assets",
-        subtitle: "Useful extras for teams that want to inspect how the work is made",
-        open: false,
-        items: [
-          {
-            title: "Component samples and front-end snippets",
-            subtitle: "Lightweight implementation examples showing how interface ideas translate into maintainable code.",
+            title: "Sri Chaitanya College of Education",
+            subtitle: "11th-12th (Math, Physics, Chemistry), 2020-2022.",
             status: "live",
-            chips: ["code", "samples"]
+            chips: ["MPC", "Hyderabad"]
           },
           {
-            title: "Working methods and project checklists",
-            subtitle: "Concise operating documents for audits, discovery work, handoff, and structured critique.",
+            title: "CHIREC International School",
+            subtitle: "High School Diploma (2020).",
+            status: "live",
+            chips: ["Hyderabad", "High School"]
+          }
+        ]
+      },
+      {
+        title: "Certifications",
+        subtitle: "Security and ML coursework",
+        open: false,
+        items: [
+          {
+            title: "Learning the OWASP Top 10",
+            subtitle: "Security fundamentals and common vulnerabilities.",
             status: "note",
-            chips: ["process", "methods"]
+            chips: ["security", "OWASP"]
+          },
+          {
+            title: "Learning Threat Modeling for Security Professionals",
+            subtitle: "Threat modeling frameworks and mitigation planning.",
+            status: "note",
+            chips: ["security", "threat modeling"]
+          },
+          {
+            title: "Secure Coding in Java (2020)",
+            subtitle: "Defensive Java practices and secure development.",
+            status: "note",
+            chips: ["Java", "security"]
+          },
+          {
+            title: "Supervised Machine Learning: Regression and Classification",
+            subtitle: "DeepLearning.AI (2023).",
+            status: "note",
+            chips: ["ML", "DeepLearning.AI"]
+          },
+          {
+            title: "Agents Course + LLM Course",
+            subtitle: "Hugging Face (2025).",
+            status: "note",
+            chips: ["LLMs", "Hugging Face"]
+          },
+          {
+            title: "Google Cloud Skills Boost: LLM, GenAI, Transformers",
+            subtitle: "Google Cloud (2023).",
+            status: "note",
+            chips: ["GCP", "GenAI"]
           }
         ]
       }
     ]
   },
   {
-    label: "Writing",
-    title: "Notes and Talks",
-    subtitle: "Essays, blog posts, teaching sessions, and public material around structure and interface clarity.",
+    label: "Leadership",
+    title: "Leadership and Interests",
+    subtitle: "Speaking, awards, and personal interests.",
     accent: "var(--accent-amber)",
     open: false,
     groups: [
       {
-        title: "Archive",
-        subtitle: "A dedicated place for essays, blog posts, and shorter notes",
+        title: "Speaking and Awards",
+        subtitle: "Communication and recognition",
         open: true,
         items: [
           {
-            title: "Writing archive",
-            subtitle: "A standalone index for blog posts, essays, and reading lists with dedicated pages.",
-            status: "live",
-            chips: ["journal", "archive"],
-            href: "writing/index.html"
+            title: "Maulana Abul Kalam Azad Debate Tournament",
+            subtitle: "Competitive debate participation and recognition.",
+            status: "note",
+            chips: ["debate", "speaking"]
           }
         ]
       },
       {
-        title: "Essays",
-        subtitle: "Published and internal writing",
-        open: true,
-        items: [
-          {
-            title: "On designing for slow reading",
-            subtitle: "A short essay on pacing, density, and why some interfaces should lower tempo instead of increasing it.",
-            status: "note",
-            chips: ["essay"],
-            href: "writing/on-designing-for-slow-reading.html"
-          },
-          {
-            title: "Taxonomy before templates",
-            subtitle: "A field note on structuring knowledge before designing chrome or component wrappers.",
-            status: "note",
-            chips: ["method"],
-            href: "writing/taxonomy-before-templates.html"
-          },
-          {
-            title: "Reading list for structured content teams",
-            subtitle: "A compact set of references on taxonomy, archives, and editorial interface design.",
-            status: "note",
-            chips: ["reading list"],
-            href: "writing/reading-list-for-structured-content-teams.html"
-          }
-        ]
-      },
-      {
-        title: "Posts",
-        subtitle: "Shorter notes that can be published more frequently",
+        title: "Interests",
+        subtitle: "Things I stay curious about",
         open: false,
         items: [
           {
-            title: "Keeping a working index",
-            subtitle: "A short post on why portfolio sites, research archives, and notes benefit from the same structural habits.",
+            title: "Math and Physics",
+            subtitle: "Curiosity in systems thinking and theoretical problem-solving.",
             status: "note",
-            chips: ["post"],
-            href: "writing/keeping-a-working-index.html"
-          }
-        ]
-      },
-      {
-        title: "Sessions",
-        subtitle: "Workshops and teaching formats",
-        open: false,
-        items: [
-          {
-            title: "Content structure clinic",
-            subtitle: "A working session for teams trying to move from loose repositories to searchable, navigable systems.",
-            status: "note",
-            chips: ["workshop"]
+            chips: ["math", "physics"]
           },
           {
-            title: "Editorial interface critiques",
-            subtitle: "Live reviews for products that need more clarity, hierarchy, and calmer navigation patterns.",
+            title: "Philosophy",
+            subtitle: "Thinking about reasoning, ethics, and systems of knowledge.",
             status: "note",
-            chips: ["talk"]
+            chips: ["philosophy", "reading"]
+          },
+          {
+            title: "Music",
+            subtitle: "Ukulele and keyboard practice.",
+            status: "note",
+            chips: ["ukulele", "keyboard"]
           }
         ]
       }
@@ -346,42 +320,42 @@ const portfolioSections = [
   {
     label: "Contact",
     title: "Contact and Links",
-    subtitle: "Direct ways to start a conversation, review work, or continue elsewhere.",
+    subtitle: "Direct ways to start a conversation, review work, or connect.",
     accent: "var(--accent-rose)",
     open: false,
     groups: [
       {
         title: "Direct",
-        subtitle: "The simplest route for project inquiries",
+        subtitle: "Best routes for collaboration",
         open: true,
         items: [
           {
             title: "Availability",
-            subtitle: "Open to select freelance, staff, and advisory conversations in 2026.",
+            subtitle: "Open to full-time roles.",
             status: "open",
             chips: ["2026", "availability"]
           },
           {
             title: "Email",
-            subtitle: "hello@yourname.com",
+            subtitle: "yash.agr1510@gmail.com",
             status: "open",
-            chips: ["inquiries"],
-            href: "mailto:hello@yourname.com"
+            chips: ["contact"],
+            href: "mailto:yash.agr1510@gmail.com"
           },
           {
             title: "LinkedIn",
-            subtitle: "Profile, background, and collaboration history.",
+            subtitle: "www.linkedin.com/in/yash-agrawal-7833a4246",
             status: "open",
             chips: ["network"],
-            href: "https://www.linkedin.com/in/your-name",
+            href: "https://www.linkedin.com/in/yash-agrawal-7833a4246",
             external: true
           },
           {
             title: "GitHub",
-            subtitle: "Code, experiments, and implementation samples.",
+            subtitle: "github.com/rogue-socket",
             status: "open",
             chips: ["code"],
-            href: "https://github.com/your-name",
+            href: "https://github.com/rogue-socket",
             external: true
           }
         ]
