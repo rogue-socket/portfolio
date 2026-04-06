@@ -233,7 +233,7 @@ const portfolioSections = [
             subtitle: "DeepLearning.AI (2023).",
             status: "note",
             chips: ["ML", "DeepLearning.AI"],
-            logo: "assets/logos/deeplearning-ai.svg"
+            logo: "assets/logos/deeplearning-ai.png"
           },
           {
             title: "Agents Course + LLM Course",
@@ -270,7 +270,7 @@ const portfolioSections = [
             subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
             status: "note",
             chips: ["2023 - 2025", "leadership"],
-            logo: "assets/logos/toastmasters.svg"
+            logo: "assets/logos/toastmasters.png"
           }
         ]
       },

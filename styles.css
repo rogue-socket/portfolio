@@ -1162,7 +1162,7 @@ html[data-theme="dark"] .meta-row > span {
 
 .item-icon.is-logo {
   padding: 6px;
-  border-color: var(--line-soft);
+  border: 1.5px solid var(--line-strong);
   background: var(--chip-bg);
 }
 
