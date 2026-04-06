@@ -74,7 +74,15 @@ function initializeRailNavigation() {
 
   function setActive(hash) {
     pairs.forEach(({ link, target }) => {
-      link.classList.toggle("is-active", hash === `#${target.id}`);
+      const isActive = hash === `#${target.id}`;
+
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
   }
 

@@ -423,6 +423,15 @@ const statusMap = {
   open: { label: "Open", color: "var(--accent-rose)" }
 };
 
+const sectionVisualMap = {
+  "selected-work": { icon: "stack" },
+  writing: { icon: "book" },
+  experience: { icon: "briefcase" },
+  education: { icon: "grid" },
+  leadership: { icon: "spark" },
+  contact: { icon: "network" }
+};
+
 function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
@@ -435,10 +444,117 @@ function buildHighlights(items, limit) {
     .join(" · ");
 }
 
-function renderItem(item) {
+function renderIcon(name) {
+  switch (name) {
+    case "stack":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="7" height="7" rx="1.75"></rect><rect x="13.5" y="4.5" width="7" height="7" rx="1.75"></rect><path d="M7 11.5v2.25a2.75 2.75 0 0 0 2.75 2.75h4.5A2.75 2.75 0 0 0 17 13.75V11.5"></path><rect x="8.5" y="16.5" width="7" height="4" rx="1.5"></rect></svg>`;
+    case "book":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5.5h10.5A1.5 1.5 0 0 1 18 7v11.5H8.25A2.25 2.25 0 0 0 6 20.75"></path><path d="M6 5.5v15.25"></path><path d="M9 9.25h6"></path><path d="M9 12.75h6"></path></svg>`;
+    case "briefcase":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="17" height="11" rx="2"></rect><path d="M9 7.5v-1A1.5 1.5 0 0 1 10.5 5h3A1.5 1.5 0 0 1 15 6.5v1"></path><path d="M3.5 11.5h17"></path></svg>`;
+    case "grid":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.25" y="4.25" width="6.5" height="6.5" rx="1.5"></rect><rect x="13.25" y="4.25" width="6.5" height="6.5" rx="1.5"></rect><rect x="4.25" y="13.25" width="6.5" height="6.5" rx="1.5"></rect><rect x="13.25" y="13.25" width="6.5" height="6.5" rx="1.5"></rect></svg>`;
+    case "spark":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 1.9 4.65 5.1.4-3.9 3.2 1.25 5-4.35-2.65-4.35 2.65 1.25-5-3.9-3.2 5.1-.4Z"></path></svg>`;
+    case "network":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="7.5" r="2"></circle><circle cx="17.5" cy="6.5" r="2"></circle><circle cx="12" cy="17.5" r="2"></circle><path d="M8 8.5 10.75 15"></path><path d="M15.75 7.75 13.25 15"></path><path d="M8.4 7.2h7.1"></path></svg>`;
+    case "timeline":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6.5h14"></path><path d="M5 12h14"></path><path d="M5 17.5h14"></path><circle cx="8" cy="6.5" r="1.25" fill="currentColor" stroke="none"></circle><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"></circle><circle cx="16" cy="17.5" r="1.25" fill="currentColor" stroke="none"></circle></svg>`;
+    case "shield":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75 18 6v5.4c0 4.05-2.4 7.1-6 8.85-3.6-1.75-6-4.8-6-8.85V6Z"></path><path d="m9.5 12 1.5 1.5 3.75-4"></path></svg>`;
+    case "mail":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.25" width="17" height="11.5" rx="2"></rect><path d="m4.75 8 7.25 5.75L19.25 8"></path></svg>`;
+    case "code":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 8-4 4 4 4"></path><path d="m15 8 4 4-4 4"></path><path d="m13 5-2 14"></path></svg>`;
+    case "eye":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 12S6.5 6.5 12 6.5 21.25 12 21.25 12 17.5 17.5 12 17.5 2.75 12 2.75 12Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg>`;
+    case "wave":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 14c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"></path><path d="M3.5 18c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"></path></svg>`;
+    case "report":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.75h7.5L18 8.25v11H7Z"></path><path d="M14.5 4.75v3.5H18"></path><path d="M9.5 12h6"></path><path d="M9.5 15.5h4"></path></svg>`;
+    case "device":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3.75" width="10" height="16.5" rx="2"></rect><path d="M10 7h4"></path><circle cx="12" cy="17.25" r="0.9" fill="currentColor" stroke="none"></circle></svg>`;
+    case "list":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5h10"></path><path d="M9 12h10"></path><path d="M9 17.5h10"></path><circle cx="5.5" cy="6.5" r="1"></circle><circle cx="5.5" cy="12" r="1"></circle><circle cx="5.5" cy="17.5" r="1"></circle></svg>`;
+    case "external":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5.5h4.5V10"></path><path d="M18.25 5.75 10.5 13.5"></path><path d="M9.5 7.5H6.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25V14.5"></path></svg>`;
+    case "arrow":
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 7 6 5-6 5"></path></svg>`;
+    default:
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>`;
+  }
+}
+
+function getSectionVisual(sectionId) {
+  return sectionVisualMap[sectionId] ?? { icon: "spark" };
+}
+
+function getItemIcon(sectionId, item) {
+  const keywords = `${item.title} ${(item.chips || []).join(" ")}`.toLowerCase();
+
+  switch (sectionId) {
+    case "selected-work":
+      if (keywords.includes("aqua") || keywords.includes("water") || keywords.includes("control")) {
+        return "wave";
+      }
+
+      if (keywords.includes("vlm") || keywords.includes("vision") || keywords.includes("image")) {
+        return "eye";
+      }
+
+      if (keywords.includes("health") || keywords.includes("report")) {
+        return "report";
+      }
+
+      if (keywords.includes("mobile") || keywords.includes("android")) {
+        return "device";
+      }
+
+      return "stack";
+    case "writing":
+      if (keywords.includes("list")) {
+        return "list";
+      }
+
+      return "book";
+    case "experience":
+      return "briefcase";
+    case "education":
+      if (keywords.includes("security") || keywords.includes("owasp") || keywords.includes("secure")) {
+        return "shield";
+      }
+
+      return "grid";
+    case "leadership":
+      if (keywords.includes("music")) {
+        return "wave";
+      }
+
+      return "spark";
+    case "contact":
+      if (item.title === "Email") {
+        return "mail";
+      }
+
+      if (item.title === "GitHub") {
+        return "code";
+      }
+
+      if (item.title === "LinkedIn") {
+        return "network";
+      }
+
+      return "spark";
+    default:
+      return "spark";
+  }
+}
+
+function renderItem(item, sectionId) {
   const tagName = item.href ? "a" : "article";
   const status = statusMap[item.status] ?? statusMap.current;
   const chipsLine = (item.chips || []).join(" · ");
+  const itemIcon = getItemIcon(sectionId, item);
   const detailsMarkup = (item.details || [])
     .map((detail) => `<p class="item-detail"><span class="item-detail-label">${detail.label}</span>${detail.text}</p>`)
     .join("");
@@ -456,10 +572,16 @@ function renderItem(item) {
     <${tagName} ${attrs.join(" ")}>
       <div class="item-main">
         <div class="item-top">
-          <span class="status-dot" style="--status-color: ${status.color};"></span>
-          <h4 class="item-title">${item.title}</h4>
+          <span class="item-icon" aria-hidden="true">${renderIcon(itemIcon)}</span>
+          <div class="item-heading">
+            <div class="item-title-row">
+              <span class="status-dot" style="--status-color: ${status.color};"></span>
+              <h4 class="item-title">${item.title}</h4>
+            </div>
+            <p class="item-subtitle">${item.subtitle}</p>
+          </div>
+          ${item.href ? `<span class="item-link-mark" aria-hidden="true">${renderIcon(item.external ? "external" : "arrow")}</span>` : ""}
         </div>
-        <p class="item-subtitle">${item.subtitle}</p>
         ${detailsMarkup ? `<div class="item-detail-list">${detailsMarkup}</div>` : ""}
       </div>
       <div class="item-meta">
@@ -469,7 +591,7 @@ function renderItem(item) {
   `;
 }
 
-function renderGroup(group, sectionLabel) {
+function renderGroup(group, sectionLabel, sectionId) {
   return `
     <section class="lane-group">
       <div class="lane-group-head">
@@ -478,7 +600,7 @@ function renderGroup(group, sectionLabel) {
         <p class="lane-group-note">${group.subtitle}</p>
       </div>
       <div class="group-items">
-        ${group.items.map((item) => renderItem(item)).join("")}
+        ${group.items.map((item) => renderItem(item, sectionId)).join("")}
       </div>
     </section>
   `;
@@ -486,6 +608,7 @@ function renderGroup(group, sectionLabel) {
 
 function renderLane(section, sectionIndex) {
   const sectionId = section.id || slugify(section.label);
+  const sectionVisual = getSectionVisual(sectionId);
   const sectionHighlights = section.summary || buildHighlights(
     section.groups.flatMap((group) => group.items),
     3
@@ -495,14 +618,14 @@ function renderLane(section, sectionIndex) {
     <section id="${sectionId}" class="lane" style="--lane-accent: ${section.accent}; --stagger: ${sectionIndex};">
       <header class="lane-head">
         <div class="lane-copy">
-          <p class="section-label">${section.label}</p>
+          <p class="section-label"><span class="section-symbol" aria-hidden="true">${renderIcon(sectionVisual.icon)}</span><span>${section.label}</span></p>
           <h2 class="lane-title">${section.title}</h2>
           <p class="lane-summary">${section.subtitle}</p>
         </div>
         <p class="lane-highlight">${sectionHighlights}</p>
       </header>
       <div class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}">
-        ${section.groups.map((group) => renderGroup(group, section.label)).join("")}
+        ${section.groups.map((group) => renderGroup(group, section.label, sectionId)).join("")}
       </div>
     </section>
   `;
