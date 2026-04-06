@@ -650,7 +650,7 @@ html[data-theme="dark"] .meta-row > span {
 
 .explorer-lanes {
   gap: 18px;
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .hero-board {
@@ -659,7 +659,7 @@ html[data-theme="dark"] .meta-row > span {
   grid-template-areas:
     "writing featured"
     "status status";
-  gap: 16px;
+  gap: 12px;
   align-self: start;
   min-width: 0;
 }
@@ -668,9 +668,9 @@ html[data-theme="dark"] .meta-row > span {
   --signal-accent: var(--accent-blue);
   display: grid;
   align-content: start;
-  gap: 12px;
-  min-height: 156px;
-  padding: 20px 22px;
+  gap: 10px;
+  min-height: 0;
+  padding: 18px;
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-lg);
   background:
@@ -685,11 +685,11 @@ html[data-theme="dark"] .meta-row > span {
 }
 
 .signal-card-mark {
-  width: 42px;
-  height: 42px;
-  padding: 9px;
+  width: 38px;
+  height: 38px;
+  padding: 8px;
   border: 1px solid color-mix(in srgb, var(--signal-accent) 22%, var(--chip-border));
-  border-radius: 14px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--signal-accent) 12%, var(--chip-bg));
   color: color-mix(in srgb, var(--signal-accent) 78%, var(--ink));
 }
@@ -707,11 +707,11 @@ html[data-theme="dark"] .meta-row > span {
 .signal-card-status {
   --signal-accent: var(--accent-rose);
   grid-area: status;
-  gap: 18px;
+  gap: 14px;
 }
 
 .hero-board .signal-card h2 {
-  font-size: clamp(22px, 2.4vw, 34px);
+  font-size: clamp(19px, 2vw, 28px);
 }
 
 .signal-card-link {
@@ -740,14 +740,19 @@ html[data-theme="dark"] .meta-row > span {
 .signal-card p {
   margin: 0;
   color: var(--text-soft);
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .signal-card-details {
   display: grid;
   gap: 8px;
   margin-top: auto;
-  padding-top: 6px;
+  padding-top: 2px;
+}
+
+.signal-card-status .signal-card-details {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
 }
 
 .signal-card-detail {
@@ -1153,6 +1158,19 @@ html[data-theme="dark"] .meta-row > span {
     transform 180ms ease,
     border-color 180ms ease,
     background-color 180ms ease;
+}
+
+.item-icon.is-logo {
+  padding: 6px;
+  border-color: var(--line-soft);
+  background: var(--chip-bg);
+}
+
+.item-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .item-heading {
@@ -1790,6 +1808,10 @@ html[data-theme="dark"] .meta-row > span {
       "writing"
       "featured"
       "status";
+  }
+
+  .signal-card-status .signal-card-details {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .lane {

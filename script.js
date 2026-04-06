@@ -161,26 +161,29 @@ const portfolioSections = [
     groups: [
       {
         kicker: "Roles",
-        title: "Industry experience",
+        title: "Roles",
         subtitle: "Applied work across enterprise copilots, medical workflows, and LLM evaluation.",
         items: [
           {
             title: "Developer Intern, Siemens EDA",
             subtitle: "Built LangGraph workflows in Siemens Capital Copilot and developed an agentic productivity framework.",
             status: "current",
-            chips: ["Jan 2026 - Present", "Hyderabad"]
+            chips: ["Jan 2026 - Present", "Hyderabad"],
+            logo: "assets/logos/siemens-mark.svg"
           },
           {
             title: "Software Engineering Intern, DocLens.ai",
             subtitle: "Developed medical necessity evaluation and RAG pipelines for insurance workflows.",
             status: "live",
-            chips: ["May - Jul 2025", "Bengaluru"]
+            chips: ["May - Jul 2025", "Bengaluru"],
+            logo: "assets/logos/doclens.png"
           },
           {
             title: "AI Engineering Intern, Bicycle AI",
             subtitle: "Improved context-aware SQL generation and built LLM benchmarking frameworks.",
             status: "live",
-            chips: ["May - Jul 2024", "Hyderabad"]
+            chips: ["May - Jul 2024", "Hyderabad"],
+            logo: "assets/logos/bicycle-mark.svg"
           }
         ]
       }
@@ -229,19 +232,22 @@ const portfolioSections = [
             title: "Supervised Machine Learning: Regression and Classification",
             subtitle: "DeepLearning.AI (2023).",
             status: "note",
-            chips: ["ML", "DeepLearning.AI"]
+            chips: ["ML", "DeepLearning.AI"],
+            logo: "assets/logos/deeplearning-ai.svg"
           },
           {
             title: "Agents Course + LLM Course",
             subtitle: "Hugging Face (2025).",
             status: "note",
-            chips: ["LLMs", "Hugging Face"]
+            chips: ["LLMs", "Hugging Face"],
+            logo: "assets/logos/huggingface.svg"
           },
           {
             title: "Google Cloud Skills Boost: LLM, GenAI, Transformers",
             subtitle: "Google Cloud (2023).",
             status: "note",
-            chips: ["GCP", "GenAI"]
+            chips: ["GCP", "GenAI"],
+            logo: "assets/logos/google-cloud.svg"
           }
         ]
       }
@@ -263,7 +269,8 @@ const portfolioSections = [
             title: "Toastmasters International",
             subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
             status: "note",
-            chips: ["2023 - 2025", "leadership"]
+            chips: ["2023 - 2025", "leadership"],
+            logo: "assets/logos/toastmasters.svg"
           }
         ]
       },
@@ -311,7 +318,8 @@ const portfolioSections = [
             subtitle: "yash.agr1510@gmail.com",
             status: "open",
             chips: ["contact"],
-            href: "mailto:yash.agr1510@gmail.com"
+            href: "mailto:yash.agr1510@gmail.com",
+            logo: "assets/logos/gmail.svg"
           },
           {
             title: "LinkedIn",
@@ -319,7 +327,8 @@ const portfolioSections = [
             status: "open",
             chips: ["network"],
             href: "https://www.linkedin.com/in/yash-agrawal-7833a4246",
-            external: true
+            external: true,
+            logo: "assets/logos/linkedin.svg"
           },
           {
             title: "GitHub",
@@ -327,7 +336,8 @@ const portfolioSections = [
             status: "open",
             chips: ["code"],
             href: "https://github.com/rogue-socket",
-            external: true
+            external: true,
+            logo: "assets/logos/github.svg"
           }
         ]
       }
@@ -468,6 +478,7 @@ function renderItem(item, sectionId) {
   const tagName = item.href ? "a" : "article";
   const chipsLine = (item.chips || []).join(" · ");
   const itemIcon = getItemIcon(sectionId, item);
+  const hasLogo = Boolean(item.logo);
   const detailsMarkup = (item.details || [])
     .map((detail) => `<p class="item-detail"><span class="item-detail-label">${detail.label}</span>${detail.text}</p>`)
     .join("");
@@ -485,7 +496,7 @@ function renderItem(item, sectionId) {
     <${tagName} ${attrs.join(" ")}>
       <div class="item-main">
         <div class="item-top">
-          <span class="item-icon" aria-hidden="true">${renderIcon(itemIcon)}</span>
+          <span class="item-icon${hasLogo ? " is-logo" : ""}" aria-hidden="true">${hasLogo ? `<img src="${item.logo}" alt="" class="item-logo-img">` : renderIcon(itemIcon)}</span>
           <div class="item-heading">
             <div class="item-title-row">
               <h4 class="item-title">${item.title}</h4>
