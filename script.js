@@ -1,15 +1,15 @@
 const portfolioSections = [
   {
-    label: "What I Do",
-    title: "What I Do",
-    subtitle: "Core focus areas, enabling systems, and selected shipped work.",
+    label: "Selected Work",
+    title: "Selected Work and Systems",
+    subtitle: "Core runtimes, workflow products, and the infrastructure behind them.",
     accent: "var(--accent-blue)",
-    open: true,
+    summary: "ClosedClaw · ForrestRun · Aqua Twin",
     groups: [
       {
-        title: "Core Focus",
-        subtitle: "The problem spaces I actively design and build around",
-        open: true,
+        kicker: "Current direction",
+        title: "What I am building toward",
+        subtitle: "The recurring problems I keep choosing rather than a loose stack of tools.",
         items: [
           {
             title: "AI agents and deliberate workflows",
@@ -25,22 +25,22 @@ const portfolioSections = [
           },
           {
             title: "Production-aware LLM backends",
-            subtitle: "Systems that hold up under real usage and constraints.",
+            subtitle: "Systems that hold up under real usage and real constraints.",
             status: "current",
             chips: ["LLM backend", "latency", "reliability"]
           },
           {
             title: "Evaluation pipelines",
-            subtitle: "Measuring output quality when vibes don't match.",
+            subtitle: "Measuring output quality when instinct and evidence diverge.",
             status: "current",
             chips: ["evaluation", "benchmarks", "RAGAs"]
           }
         ]
       },
       {
-        title: "Systems and Infrastructure",
-        subtitle: "Foundational runtimes, orchestration patterns, and retrieval layers",
-        open: true,
+        kicker: "Systems",
+        title: "Runtimes and infrastructure",
+        subtitle: "Foundational layers for creating, deploying, observing, and evaluating agents.",
         items: [
           {
             title: "ClosedClaw",
@@ -60,28 +60,22 @@ const portfolioSections = [
           },
           {
             title: "Framework stack",
-            subtitle: "LangChain, LangGraph, LlamaIndex, and Hugging Face agents.",
+            subtitle: "LangChain, LangGraph, LlamaIndex, Hugging Face agents, and the glue between them.",
             status: "current",
             chips: ["LangChain", "LangGraph", "LlamaIndex"]
           },
           {
-            title: "Orchestration patterns",
-            subtitle: "Tool-calling, knowledge graphs, orchestration, and evaluation.",
-            status: "current",
-            chips: ["tools", "knowledge graphs", "evaluation"]
-          },
-          {
             title: "Retrieval infrastructure",
-            subtitle: "Vector databases and embedding pipelines.",
+            subtitle: "Vector databases, embeddings, and retrieval layers for production use.",
             status: "current",
             chips: ["Qdrant", "Chroma", "embeddings"]
           }
         ]
       },
       {
-        title: "Workflow Applications",
-        subtitle: "Domain-facing agents shipped into specific workflows",
-        open: true,
+        kicker: "Applications",
+        title: "Workflow-facing products",
+        subtitle: "Agents applied to actual domains rather than sandbox demos.",
         items: [
           {
             title: "MyCompAgent",
@@ -100,16 +94,8 @@ const portfolioSections = [
             external: true
           },
           {
-            title: "Agentic Article Writer",
-            subtitle: "Agentic writer supporting multiple article styles.",
-            status: "note",
-            chips: ["writing", "agents"],
-            href: "https://github.com/rogue-socket/agentic_article_writer",
-            external: true
-          },
-          {
             title: "Doctor Reporting",
-            subtitle: "Agentic flow for auto-generated consultation reports.",
+            subtitle: "Agentic flow for automatically generated consultation reports.",
             status: "note",
             chips: ["healthcare", "reports"],
             href: "https://github.com/rogue-socket/doctor_reporting",
@@ -126,33 +112,21 @@ const portfolioSections = [
         ]
       },
       {
-        title: "ML Foundations and Experiments",
-        subtitle: "Adjacent work spanning VLMs, ML pipelines, and product exploration",
-        open: false,
+        kicker: "Adjacent work",
+        title: "ML foundations and experiments",
+        subtitle: "Related exploration across VLMs, ML pipelines, and product experiments.",
         items: [
           {
             title: "Real Time VLM Pedagogy",
-            subtitle: "Vision + image processing pedagogy for math and guitar learning.",
+            subtitle: "Vision and image processing pedagogy for math and guitar learning.",
             status: "live",
             chips: ["VLM", "OpenCV", "real-time"],
             href: "https://github.com/rogue-socket/math-guitar-vlm",
             external: true
           },
           {
-            title: "LLM and NLP pipelines",
-            subtitle: "Summarization, classification, and fine-tuning workflows.",
-            status: "current",
-            chips: ["NLP", "LLM", "fine-tuning"]
-          },
-          {
-            title: "Data and ML engineering",
-            subtitle: "PyTorch/TensorFlow, scikit-learn, and feature pipelines.",
-            status: "current",
-            chips: ["PyTorch", "TensorFlow", "scikit-learn"]
-          },
-          {
             title: "Neural Network (NumPy)",
-            subtitle: "Neural network built from scratch using NumPy only.",
+            subtitle: "A neural network built from scratch using NumPy only.",
             status: "note",
             chips: ["NumPy", "from scratch"],
             href: "https://github.com/rogue-socket/neural_network_numpy",
@@ -179,17 +153,74 @@ const portfolioSections = [
     ]
   },
   {
+    label: "Writing",
+    title: "Writing, Notes, and Things I Want to Say",
+    subtitle: "A place for essays, shorter posts, reading lists, and thoughts that do not fit inside a project caption.",
+    accent: "var(--accent-amber)",
+    summary: "Essays · notes · public thinking",
+    groups: [
+      {
+        kicker: "Featured",
+        title: "Recent pieces",
+        subtitle: "Longer arguments and shorter notes that sit beside the work instead of behind it.",
+        items: [
+          {
+            title: "On designing for slow reading",
+            subtitle: "Why some interfaces should help people stay with the material rather than rush them through it.",
+            status: "live",
+            chips: ["essay", "featured"],
+            href: "writing/on-designing-for-slow-reading.html"
+          },
+          {
+            title: "Taxonomy before templates",
+            subtitle: "Why structure and relationships usually need to be settled before layout systems can do useful work.",
+            status: "live",
+            chips: ["essay", "method"],
+            href: "writing/taxonomy-before-templates.html"
+          },
+          {
+            title: "Keeping a working index",
+            subtitle: "Why portfolios, research repositories, and note systems benefit from similar structural habits.",
+            status: "live",
+            chips: ["post", "systems"],
+            href: "writing/keeping-a-working-index.html"
+          }
+        ]
+      },
+      {
+        kicker: "Archive",
+        title: "What lives there",
+        subtitle: "The archive can hold multiple tempos at once without being buried in a misc section.",
+        items: [
+          {
+            title: "Writing archive",
+            subtitle: "The full home for essays, notes, reading lists, and public thought fragments.",
+            status: "current",
+            chips: ["archive", "index"],
+            href: "writing/index.html"
+          },
+          {
+            title: "Reading list for structured content teams",
+            subtitle: "Books, practices, and habits useful for teams working with archives, metadata, and dense interfaces.",
+            status: "live",
+            chips: ["list", "references"],
+            href: "writing/reading-list-for-structured-content-teams.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
     label: "Experience",
     title: "Experience",
     subtitle: "Industry roles and applied research internships.",
     accent: "var(--accent-slate)",
-    flat: true,
-    open: true,
+    summary: "Siemens EDA · DocLens.ai · Bicycle AI",
     groups: [
       {
-        title: "Experience",
-        subtitle: "",
-        open: true,
+        kicker: "Roles",
+        title: "Industry experience",
+        subtitle: "Applied work across enterprise copilots, medical workflows, and LLM evaluation.",
         items: [
           {
             title: "Developer Intern, Siemens EDA",
@@ -218,13 +249,12 @@ const portfolioSections = [
     title: "Education and Certifications",
     subtitle: "Academic background and professional certifications.",
     accent: "var(--accent-olive)",
-    resetGroupsOnOpen: true,
-    open: false,
+    summary: "VIT · security · machine learning",
     groups: [
       {
-        title: "Education",
-        subtitle: "Academic background",
-        open: true,
+        kicker: "Education",
+        title: "Academic background",
+        subtitle: "Coursework and training that support the applied work.",
         items: [
           {
             title: "Vellore Institute of Technology",
@@ -246,9 +276,9 @@ const portfolioSections = [
         ]
       },
       {
-        title: "Certifications",
-        subtitle: "Security and ML coursework",
-        open: false,
+        kicker: "Certifications",
+        title: "Security and ML coursework",
+        subtitle: "Additional training across secure development and ML foundations.",
         items: [
           {
             title: "Learning the OWASP Top 10",
@@ -293,14 +323,14 @@ const portfolioSections = [
   {
     label: "Leadership",
     title: "Leadership and Interests",
-    subtitle: "Communication leadership and personal interests.",
-    accent: "var(--accent-amber)",
-    open: false,
+    subtitle: "Communication leadership and the topics I keep returning to.",
+    accent: "var(--accent-rose)",
+    summary: "Toastmasters · math · philosophy",
     groups: [
       {
-        title: "Leadership",
-        subtitle: "Communication and community leadership",
-        open: false,
+        kicker: "Leadership",
+        title: "Communication and community",
+        subtitle: "Work that sharpened speaking, teaching, and structured communication.",
         items: [
           {
             title: "Toastmasters International",
@@ -311,9 +341,9 @@ const portfolioSections = [
         ]
       },
       {
-        title: "Interests",
-        subtitle: "Things I stay curious about",
-        open: false,
+        kicker: "Interests",
+        title: "What I stay curious about",
+        subtitle: "Topics that influence how I think about systems, clarity, and learning.",
         items: [
           {
             title: "Math and Physics",
@@ -341,13 +371,13 @@ const portfolioSections = [
     label: "Contact",
     title: "Contact and Links",
     subtitle: "Direct ways to start a conversation, review work, or connect.",
-    accent: "var(--accent-rose)",
-    open: false,
+    accent: "var(--accent-sage)",
+    summary: "Email · LinkedIn · GitHub",
     groups: [
       {
-        title: "Direct",
-        subtitle: "Best routes for collaboration",
-        open: true,
+        kicker: "Direct",
+        title: "Best routes for collaboration",
+        subtitle: "If the work is relevant, these are the fastest ways to reach me.",
         items: [
           {
             title: "Availability",
@@ -385,7 +415,6 @@ const portfolioSections = [
 ];
 
 const explorer = document.getElementById("explorer");
-const collapseAllButton = document.getElementById("collapse-all");
 
 const statusMap = {
   current: { label: "Current", color: "var(--accent-sage)" },
@@ -394,35 +423,26 @@ const statusMap = {
   open: { label: "Open", color: "var(--accent-rose)" }
 };
 
-function formatCount(value) {
-  return String(value).padStart(2, "0");
+function slugify(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-function renderItem(section, group, item) {
+function buildHighlights(items, limit) {
+  return items
+    .map((item) => item.highlight || item.title)
+    .filter(Boolean)
+    .slice(0, limit)
+    .join(" · ");
+}
+
+function renderItem(item) {
   const tagName = item.href ? "a" : "article";
   const status = statusMap[item.status] ?? statusMap.current;
   const chipsLine = (item.chips || []).join(" · ");
-  const detailTerms = (item.details || []).flatMap((detail) => [detail.label, detail.text]);
   const detailsMarkup = (item.details || [])
     .map((detail) => `<p class="item-detail"><span class="item-detail-label">${detail.label}</span>${detail.text}</p>`)
     .join("");
-  const searchTerms = [
-    section.label,
-    section.title,
-    group.title,
-    group.subtitle,
-    item.title,
-    item.subtitle,
-    status.label,
-    ...(item.chips || []),
-    ...detailTerms
-  ]
-    .join(" ")
-    .toLowerCase();
-  const attrs = [
-    `class="item-row${item.href ? " is-link" : ""}"`,
-    `data-search="${searchTerms}"`
-  ];
+  const attrs = [`class="item-row${item.href ? " is-link" : ""}"`];
 
   if (item.href) {
     attrs.push(`href="${item.href}"`);
@@ -449,151 +469,57 @@ function renderItem(section, group, item) {
   `;
 }
 
-function buildHighlights(items, limit) {
-  return items
-    .map((item) => item.highlight || item.title)
-    .filter(Boolean)
-    .slice(0, limit)
-    .join(" · ");
+function renderGroup(group, sectionLabel) {
+  return `
+    <section class="lane-group">
+      <div class="lane-group-head">
+        <p class="eyebrow">${group.kicker || sectionLabel}</p>
+        <h3 class="lane-group-title">${group.title}</h3>
+        <p class="lane-group-note">${group.subtitle}</p>
+      </div>
+      <div class="group-items">
+        ${group.items.map((item) => renderItem(item)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderLane(section, sectionIndex) {
+  const sectionId = section.id || slugify(section.label);
+  const sectionHighlights = section.summary || buildHighlights(
+    section.groups.flatMap((group) => group.items),
+    3
+  );
+
+  return `
+    <section id="${sectionId}" class="lane" style="--lane-accent: ${section.accent}; --stagger: ${sectionIndex};">
+      <header class="lane-head">
+        <div class="lane-copy">
+          <p class="section-label">${section.label}</p>
+          <h2 class="lane-title">${section.title}</h2>
+          <p class="lane-summary">${section.subtitle}</p>
+        </div>
+        <p class="lane-highlight">${sectionHighlights}</p>
+      </header>
+      <div class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}">
+        ${section.groups.map((group) => renderGroup(group, section.label)).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function renderExplorer() {
+  if (!explorer) {
+    return;
+  }
+
   explorer.innerHTML = portfolioSections
-    .map((section, sectionIndex) => {
-      const sectionPanelId = `section-panel-${sectionIndex}`;
-      const sectionId = section.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      const sectionHighlights = buildHighlights(
-        section.groups.flatMap((group) => group.items),
-        3
-      );
-
-      return `
-        <section id="${sectionId}" class="section" style="--section-accent: ${section.accent}; --stagger: ${sectionIndex};">
-          <button
-            class="section-header"
-            type="button"
-            aria-expanded="${section.open}"
-            aria-controls="${sectionPanelId}"
-            data-default-expanded="${section.open}"
-            data-reset-groups-on-open="${section.resetGroupsOnOpen === true}"
-          >
-            <span class="section-accent" aria-hidden="true"></span>
-            <span class="section-index">${formatCount(sectionIndex + 1)}</span>
-            <span class="section-copy">
-              <h2 class="section-title">${section.title}</h2>
-            </span>
-            <span class="section-count">${sectionHighlights || ""}</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div id="${sectionPanelId}" class="section-body${section.open ? "" : " is-hidden"}">
-            ${section.flat
-              ? `
-                <div class="group-items">
-                  ${section.groups
-                    .flatMap((group) => group.items.map((item) => renderItem(section, group, item)))
-                    .join("")}
-                </div>
-              `
-              : section.groups
-              .map((group, groupIndex) => {
-                const groupPanelId = `group-panel-${sectionIndex}-${groupIndex}`;
-                const groupHighlights = buildHighlights(group.items, 2);
-
-                return `
-                  <section class="group">
-                    <button
-                      class="group-header"
-                      type="button"
-                      aria-expanded="${group.open}"
-                      aria-controls="${groupPanelId}"
-                      data-default-expanded="${group.open}"
-                    >
-                      <span class="group-copy">
-                        <h3 class="group-title">${group.title}</h3>
-                        <p class="group-subtitle">${group.subtitle}</p>
-                        ${groupHighlights ? `<p class="group-preview">${groupHighlights}</p>` : ""}
-                      </span>
-                      <span class="group-chevron" aria-hidden="true"></span>
-                    </button>
-                    <div id="${groupPanelId}" class="group-items${group.open ? "" : " is-hidden"}">
-                      ${group.items.map((item) => renderItem(section, group, item)).join("")}
-                    </div>
-                  </section>
-                `;
-              })
-              .join("")}
-          </div>
-        </section>
-      `;
-    })
+    .map((section, sectionIndex) => renderLane(section, sectionIndex))
     .join("");
 }
 
-function setExpanded(toggle, expanded) {
-  const panel = document.getElementById(toggle.getAttribute("aria-controls"));
-  if (!panel) {
-    return;
-  }
-  toggle.setAttribute("aria-expanded", String(expanded));
-  panel.classList.toggle("is-hidden", !expanded);
-  updateCollapseAllVisibility();
-}
-
-function restoreDefaults() {
-  explorer.querySelectorAll(".section-header, .group-header").forEach((toggle) => {
-    setExpanded(toggle, toggle.dataset.defaultExpanded === "true");
-  });
-}
-
-function restoreGroupDefaults(sectionElement) {
-  if (!sectionElement) {
-    return;
-  }
-
-  sectionElement.querySelectorAll(".group-header").forEach((toggle) => {
-    setExpanded(toggle, toggle.dataset.defaultExpanded === "true");
-  });
-}
-
-function updateCollapseAllVisibility() {
-  if (!collapseAllButton) {
-    return;
-  }
-  const anyExpanded = Array.from(
-    explorer.querySelectorAll(".section-header, .group-header")
-  ).some((toggle) => toggle.getAttribute("aria-expanded") === "true");
-  collapseAllButton.classList.toggle("is-hidden", !anyExpanded);
-}
-
-function bindExplorerInteractions() {
-  explorer.addEventListener("click", (event) => {
-    const toggle = event.target.closest(".section-header, .group-header");
-    if (!toggle) {
-      return;
-    }
-
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    const nextExpanded = !expanded;
-    setExpanded(toggle, nextExpanded);
-
-    if (
-      nextExpanded
-      && toggle.classList.contains("section-header")
-      && toggle.dataset.resetGroupsOnOpen === "true"
-    ) {
-      restoreGroupDefaults(toggle.closest(".section"));
-    }
-  });
-
-  if (collapseAllButton) {
-    collapseAllButton.addEventListener("click", () => {
-      explorer.querySelectorAll(".section-header, .group-header").forEach((toggle) => {
-        setExpanded(toggle, false);
-      });
-    });
-  }
-}
-
 renderExplorer();
-bindExplorerInteractions();
-updateCollapseAllVisibility();
+
+if (typeof initializeRailNavigation === "function") {
+  initializeRailNavigation();
+}

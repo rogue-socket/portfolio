@@ -22,35 +22,104 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-home">
-  <div class="page-shell">
-    <div class="utility-bar" aria-label="Site utilities">
+  <aside class="side-rail" aria-label="Quick navigation">
+    <div class="side-rail-shell">
       <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
         <span data-theme-label>Switch to dark mode</span>
       </button>
+      <nav class="rail-nav">
+        <a class="rail-link is-active" href="#intro">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Intro</span>
+        </a>
+        <a class="rail-link" href="#selected-work">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Work</span>
+        </a>
+        <a class="rail-link" href="#writing">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Writing</span>
+        </a>
+        <a class="rail-link" href="#experience">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Experience</span>
+        </a>
+        <a class="rail-link" href="#contact">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Contact</span>
+        </a>
+      </nav>
     </div>
+  </aside>
 
-    <header class="hero">
-      <h1 class="hero-title">Yash Agrawal</h1>
-      <p class="hero-summary">
-        AI/ML engineer building agentic workflows, structured reasoning systems, and production-ready LLM backends.
-      </p>
-      <div class="meta-row" aria-label="Portfolio metadata">
-        <span><span class="meta-label">Role</span> AI/ML Engineer</span>
-        <span><span class="meta-label">Focus</span> Agentic workflows, structured reasoning, LLM backends</span>
-        <span><span class="meta-label">Experience</span> Industry internships since 2024</span>
-        <span><span class="meta-label">Base</span> Hyderabad, India</span>
-        <span><span class="meta-label">Availability</span> Open to full-time roles</span>
+  <div class="page-shell">
+    <header id="intro" class="hero">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">AI/ML Engineer</p>
+          <h1 class="hero-title">Yash Agrawal</h1>
+          <p class="hero-summary">
+            I build agentic workflows, structured reasoning systems, and production-ready LLM backends that stay understandable after the demo.
+          </p>
+          <div class="meta-row" aria-label="Portfolio metadata">
+            <span><span class="meta-label">Role</span> AI/ML Engineer</span>
+            <span><span class="meta-label">Focus</span> Agentic workflows, structured reasoning, LLM backends</span>
+            <span><span class="meta-label">Experience</span> Industry internships since 2024</span>
+            <span><span class="meta-label">Base</span> Hyderabad, India</span>
+            <span><span class="meta-label">Availability</span> Open to full-time roles</span>
+          </div>
+        </div>
+
+        <div class="hero-board" aria-label="Quick portfolio overview">
+          <article class="signal-card signal-card-thesis">
+            <p class="eyebrow">Current Thesis</p>
+            <h2>Systems that can explain themselves while they work.</h2>
+            <p>
+              The interesting part for me is not just making agents work once. It is making runtimes, evaluations, and interfaces that remain legible when real constraints show up.
+            </p>
+            <div class="signal-card-points" aria-label="Current focus areas">
+              <span>Agent runtimes</span>
+              <span>Evaluation loops</span>
+              <span>Readable tooling</span>
+            </div>
+          </article>
+
+          <a class="signal-card signal-card-link signal-card-writing" href="writing/index.html">
+            <p class="eyebrow">Writing</p>
+            <h2>A real place for blog posts, notes, and thoughts.</h2>
+            <p>
+              Longer essays, shorter observations, and the things I want to say when a project summary is too small.
+            </p>
+          </a>
+
+          <a class="signal-card signal-card-link signal-card-featured" href="https://github.com/rogue-socket/closed_claw" target="_blank" rel="noreferrer">
+            <p class="eyebrow">Featured System</p>
+            <h2>ClosedClaw</h2>
+            <p>
+              A framework for agent creation, orchestration, deployment, and storage.
+            </p>
+          </a>
+
+          <article class="signal-card signal-card-status">
+            <p class="eyebrow">Current Status</p>
+            <h2>Open to full-time AI/ML engineering roles.</h2>
+            <p>
+              Based in Hyderabad, with recent work across agent runtimes, evaluation pipelines, and workflow automation.
+            </p>
+            <div class="signal-card-points" aria-label="Current status details">
+              <span>Hyderabad</span>
+              <span>Full-time roles</span>
+              <span>2026</span>
+            </div>
+          </article>
+        </div>
       </div>
     </header>
 
-    <main aria-label="Portfolio explorer">
-      <div id="explorer" class="explorer"></div>
+    <main aria-label="Portfolio overview">
+      <div id="explorer" class="explorer explorer-lanes"></div>
     </main>
   </div>
-
-  <button class="floating-action" type="button" id="collapse-all" aria-label="Collapse all sections">
-    Collapse all
-  </button>
 
   <script src="theme.js"></script>
   <script src="script.js"></script>

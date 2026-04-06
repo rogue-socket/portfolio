@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keeping a Working Index | Your Name</title>
+  <title>Keeping a Working Index | Yash Agrawal</title>
   <meta
     name="description"
     content="Short post about using indexes as a practical structure across portfolios, archives, and notes."
@@ -22,18 +22,29 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="detail-page post-page">
-  <div class="page-shell">
-    <div class="utility-bar" aria-label="Site utilities">
-      <nav class="utility-links" aria-label="Primary links">
-        <a href="../index.html">Index</a>
-        <a href="index.html">Writing</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
+  <aside class="side-rail" aria-label="Page navigation">
+    <div class="side-rail-shell">
       <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
         <span data-theme-label>Switch to dark mode</span>
       </button>
+      <nav class="rail-nav">
+        <a class="rail-link" href="../index.html">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Home</span>
+        </a>
+        <a class="rail-link" href="index.html">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Writing</span>
+        </a>
+        <a class="rail-link" href="../index.html#contact">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Contact</span>
+        </a>
+      </nav>
     </div>
+  </aside>
 
+  <div class="page-shell">
     <nav class="breadcrumbs" aria-label="Breadcrumbs">
       <a href="../index.html">Index</a>
       <span>/</span>

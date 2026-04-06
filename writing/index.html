@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing Archive | Your Name</title>
+  <title>Writing and Notes | Yash Agrawal</title>
   <meta
     name="description"
-    content="Writing archive for essays, blog posts, notes, and reading lists."
+    content="Writing archive for essays, notes, reading lists, and public working thoughts."
   >
   <script>
     (function () {
@@ -22,18 +22,33 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="detail-page writing-page">
-  <div class="page-shell">
-    <div class="utility-bar" aria-label="Site utilities">
-      <nav class="utility-links" aria-label="Primary links">
-        <a href="../index.html">Index</a>
-        <a href="index.html">Writing</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
+  <aside class="side-rail" aria-label="Writing navigation">
+    <div class="side-rail-shell">
       <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
         <span data-theme-label>Switch to dark mode</span>
       </button>
+      <nav class="rail-nav">
+        <a class="rail-link" href="../index.html">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Home</span>
+        </a>
+        <a class="rail-link" href="#essays">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Essays</span>
+        </a>
+        <a class="rail-link" href="#notes">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Notes</span>
+        </a>
+        <a class="rail-link" href="#lists">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Lists</span>
+        </a>
+      </nav>
     </div>
+  </aside>
 
+  <div class="page-shell">
     <nav class="breadcrumbs" aria-label="Breadcrumbs">
       <a href="../index.html">Index</a>
       <span>/</span>
@@ -41,24 +56,23 @@
     </nav>
 
     <header class="detail-hero">
-      <p class="detail-label">Writing Archive</p>
-      <h1 class="detail-title">Journal, Essays, and Posts</h1>
+      <p class="detail-label">Writing</p>
+      <h1 class="detail-title">Writing, Notes, and Public Thinking</h1>
       <p class="detail-summary">
-        A dedicated place for longer essays, shorter blog posts, reading lists, and notes
-        that sit beside the portfolio instead of disappearing into a miscellaneous section.
+        A place for essays, shorter notes, reading lists, and whatever I want to say when a project summary is too small.
       </p>
       <div class="meta-row" aria-label="Writing metadata">
-        <span><span class="meta-label">Formats</span> Essays, posts, lists, notes</span>
-        <span><span class="meta-label">Focus</span> Structure, interface design, editorial systems</span>
-        <span><span class="meta-label">Cadence</span> Ongoing and lightweight</span>
-        <span><span class="meta-label">Purpose</span> Public thinking and working references</span>
+        <span><span class="meta-label">Formats</span> Essays, notes, lists, field logs</span>
+        <span><span class="meta-label">Focus</span> AI systems, interfaces, structure, learning</span>
+        <span><span class="meta-label">Cadence</span> Ongoing, uneven, and honest</span>
+        <span><span class="meta-label">Purpose</span> Public thinking and useful references</span>
       </div>
     </header>
 
     <main class="detail-main">
       <section class="writing-layout" aria-label="Writing archive layout">
         <div class="archive-column">
-          <section class="archive-group" aria-labelledby="essays-heading">
+          <section id="essays" class="archive-group" aria-labelledby="essays-heading">
             <div class="archive-group-head">
               <div>
                 <p class="eyebrow">Essays</p>
@@ -92,29 +106,29 @@
             </a>
           </section>
 
-          <section class="archive-group" aria-labelledby="posts-heading">
+          <section id="notes" class="archive-group" aria-labelledby="notes-heading">
             <div class="archive-group-head">
               <div>
-                <p class="eyebrow">Posts</p>
-                <h2 id="posts-heading" class="archive-group-title">Shorter notes</h2>
+                <p class="eyebrow">Notes</p>
+                <h2 id="notes-heading" class="archive-group-title">Shorter notes and blog posts</h2>
               </div>
-              <p class="archive-group-note">01 post</p>
+              <p class="archive-group-note">01 note</p>
             </div>
 
             <a class="archive-row" href="keeping-a-working-index.html">
               <div class="archive-main">
-                <p class="archive-meta">Post / April 2026</p>
+                <p class="archive-meta">Note / April 2026</p>
                 <h3 class="archive-title">Keeping a working index</h3>
                 <p class="archive-summary">Why portfolio sites, research repositories, and note systems benefit from the same structural habits even when they serve different audiences.</p>
               </div>
               <div class="item-meta">
-                <span class="chip">post</span>
+                <span class="chip">note</span>
                 <span class="chip">systems</span>
               </div>
             </a>
           </section>
 
-          <section class="archive-group" aria-labelledby="lists-heading">
+          <section id="lists" class="archive-group" aria-labelledby="lists-heading">
             <div class="archive-group-head">
               <div>
                 <p class="eyebrow">Lists</p>
@@ -138,18 +152,16 @@
         </div>
 
         <aside class="glass-panel archive-sidebar" aria-label="Writing archive notes">
-          <p class="eyebrow">Editorial Note</p>
+          <p class="eyebrow">Why This Exists</p>
           <p>
-            This archive is meant to hold different writing tempos in one place: longer essays,
-            shorter posts, reference lists, and working notes that are still useful to publish.
+            Some entries here are polished. Some are just useful. The point is to keep a public place for longer arguments, shorter thoughts, and references that would otherwise disappear into private notes.
           </p>
           <p>
-            The structure stays close to the rest of the portfolio so writing can feel like part of the practice,
-            not an unrelated appendix.
+            I want the writing to feel like part of the practice, not an appendix bolted onto the side of the portfolio.
           </p>
           <div class="archive-links">
             <a href="on-designing-for-slow-reading.html">Read the featured essay</a>
-            <a href="keeping-a-working-index.html">Open the latest post</a>
+            <a href="keeping-a-working-index.html">Open the latest note</a>
             <a href="../index.html">Return to the portfolio index</a>
           </div>
         </aside>
