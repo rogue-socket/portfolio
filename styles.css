@@ -197,16 +197,25 @@ input {
 .side-rail .theme-toggle {
   position: relative;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  justify-self: center;
+  width: 36px;
+  height: 36px;
   padding: 0;
   border-radius: 999px;
-  margin: 0 auto;
+  margin: 0;
   transition:
+    width 180ms ease,
+    height 180ms ease,
     transform 180ms ease,
     background-color 180ms ease,
     border-color 180ms ease,
     color 180ms ease;
+}
+
+.side-rail:hover .theme-toggle,
+.side-rail:focus-within .theme-toggle {
+  width: 42px;
+  height: 42px;
 }
 
 .side-rail .theme-toggle [data-theme-label] {
@@ -255,12 +264,8 @@ input {
 .rail-nav::after {
   top: 13px;
   height: calc((100% - 26px) * var(--rail-progress, 0));
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent-blue) 75%, white 10%),
-    color-mix(in srgb, var(--accent-sage) 72%, white 10%)
-  );
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-blue) 16%, transparent);
+  background: color-mix(in srgb, var(--ink) 38%, transparent);
+  box-shadow: none;
 }
 
 .rail-link {
@@ -344,12 +349,8 @@ input {
 .rail-link.is-active {
   color: var(--ink);
   outline: none;
-  border-color: color-mix(in srgb, var(--accent-blue) 28%, var(--chip-border));
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--accent-blue) 16%, transparent),
-    color-mix(in srgb, var(--bg-panel-strong) 76%, transparent)
-  );
+  border-color: var(--line-strong);
+  background: var(--surface-hover);
 }
 
 .rail-link:hover,
@@ -376,9 +377,9 @@ input {
 .rail-link:focus-visible .rail-dot,
 .rail-link.is-active .rail-dot {
   height: 28px;
-  border-color: color-mix(in srgb, var(--accent-blue) 70%, var(--line-strong));
-  background: color-mix(in srgb, var(--accent-blue) 78%, white 10%);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-blue) 18%, transparent);
+  border-color: var(--line-strong);
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  box-shadow: none;
 }
 
 .rail-link:hover .rail-link-text,
@@ -402,23 +403,18 @@ input {
 
 .side-rail:not(:hover):not(:focus-within) .rail-link.is-active .rail-dot {
   height: 32px;
-  border-color: color-mix(in srgb, var(--accent-blue) 68%, var(--line-strong));
-  background: color-mix(in srgb, var(--accent-blue) 76%, white 10%);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-blue) 14%, transparent);
+  border-color: var(--line-strong);
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  box-shadow: none;
 }
 
 .theme-toggle::before {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 1.5px;
   border-radius: 999px;
-  background: var(--accent-blue);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-blue) 22%, transparent);
-}
-
-html[data-theme="dark"] .theme-toggle::before {
-  background: var(--accent-amber);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-amber) 26%, transparent);
+  background: currentColor;
+  box-shadow: none;
 }
 
 .hero,
@@ -659,10 +655,10 @@ html[data-theme="dark"] .meta-row > span {
 
 .hero-board {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "writing featured"
-    "status status";
+    "featured"
+    "status";
   gap: 16px;
   align-self: start;
   min-width: 0;
@@ -696,11 +692,6 @@ html[data-theme="dark"] .meta-row > span {
   border-radius: 14px;
   background: color-mix(in srgb, var(--signal-accent) 12%, var(--chip-bg));
   color: color-mix(in srgb, var(--signal-accent) 78%, var(--ink));
-}
-
-.signal-card-writing {
-  --signal-accent: var(--accent-amber);
-  grid-area: writing;
 }
 
 .signal-card-featured {
@@ -745,6 +736,31 @@ html[data-theme="dark"] .meta-row > span {
   margin: 0;
   color: var(--text-soft);
   line-height: 1.65;
+}
+
+.signal-card-details {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.signal-card-detail {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+.signal-card-detail-label {
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .signal-card-points {
@@ -1111,11 +1127,15 @@ html[data-theme="dark"] .meta-row > span {
   min-width: 0;
 }
 
+.item-main > .item-subtitle {
+  max-width: none;
+}
+
 .item-title-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 }
 
 .item-title {
@@ -1168,13 +1188,6 @@ html[data-theme="dark"] .meta-row > span {
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--status-color, var(--accent-slate));
 }
 
 .chip {
@@ -1589,7 +1602,7 @@ html[data-theme="dark"] .meta-row > span {
   }
 
   .rail-nav::after {
-    background: linear-gradient(180deg, var(--accent-blue), var(--accent-sage));
+    background: var(--line-strong);
     box-shadow: none;
   }
 
@@ -1633,10 +1646,10 @@ html[data-theme="dark"] .meta-row > span {
   }
 
   .hero-board {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      "writing featured"
-      "status status";
+      "featured"
+      "status";
   }
 
   .lane-grid {
@@ -1740,7 +1753,6 @@ html[data-theme="dark"] .meta-row > span {
   .hero-board {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      "writing"
       "featured"
       "status";
   }

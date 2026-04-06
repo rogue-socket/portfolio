@@ -249,7 +249,7 @@ const portfolioSections = [
     title: "Education and Certifications",
     subtitle: "Academic background and professional certifications.",
     accent: "var(--accent-olive)",
-    summary: "VIT · security · machine learning",
+    summary: "VIT · AI · machine learning",
     groups: [
       {
         kicker: "Education",
@@ -277,27 +277,12 @@ const portfolioSections = [
       },
       {
         kicker: "Certifications",
-        title: "Security and ML coursework",
-        subtitle: "Additional training across secure development and ML foundations.",
+        title: "Certifications",
+        subtitle: "Additional training across AI, machine learning, and GenAI.",
+        collapsible: true,
+        collapsed: true,
+        preview: "ML · LLMs · GenAI",
         items: [
-          {
-            title: "Learning the OWASP Top 10",
-            subtitle: "Security fundamentals and common vulnerabilities.",
-            status: "note",
-            chips: ["security", "OWASP"]
-          },
-          {
-            title: "Learning Threat Modeling for Security Professionals",
-            subtitle: "Threat modeling frameworks and mitigation planning.",
-            status: "note",
-            chips: ["security", "threat modeling"]
-          },
-          {
-            title: "Secure Coding in Java (2020)",
-            subtitle: "Defensive Java practices and secure development.",
-            status: "note",
-            chips: ["Java", "security"]
-          },
           {
             title: "Supervised Machine Learning: Regression and Classification",
             subtitle: "DeepLearning.AI (2023).",
@@ -380,12 +365,6 @@ const portfolioSections = [
         subtitle: "If the work is relevant, these are the fastest ways to reach me.",
         items: [
           {
-            title: "Availability",
-            subtitle: "Open to full-time roles.",
-            status: "open",
-            chips: ["2026", "availability"]
-          },
-          {
             title: "Email",
             subtitle: "yash.agr1510@gmail.com",
             status: "open",
@@ -415,13 +394,6 @@ const portfolioSections = [
 ];
 
 const explorer = document.getElementById("explorer");
-
-const statusMap = {
-  current: { label: "Current", color: "var(--accent-sage)" },
-  live: { label: "Live", color: "var(--accent-blue)" },
-  note: { label: "Note", color: "var(--accent-amber)" },
-  open: { label: "Open", color: "var(--accent-rose)" }
-};
 
 const sectionVisualMap = {
   "selected-work": { icon: "stack" },
@@ -552,7 +524,6 @@ function getItemIcon(sectionId, item) {
 
 function renderItem(item, sectionId) {
   const tagName = item.href ? "a" : "article";
-  const status = statusMap[item.status] ?? statusMap.current;
   const chipsLine = (item.chips || []).join(" · ");
   const itemIcon = getItemIcon(sectionId, item);
   const detailsMarkup = (item.details || [])
@@ -575,13 +546,12 @@ function renderItem(item, sectionId) {
           <span class="item-icon" aria-hidden="true">${renderIcon(itemIcon)}</span>
           <div class="item-heading">
             <div class="item-title-row">
-              <span class="status-dot" style="--status-color: ${status.color};"></span>
               <h4 class="item-title">${item.title}</h4>
             </div>
-            <p class="item-subtitle">${item.subtitle}</p>
           </div>
           ${item.href ? `<span class="item-link-mark" aria-hidden="true">${renderIcon(item.external ? "external" : "arrow")}</span>` : ""}
         </div>
+        <p class="item-subtitle">${item.subtitle}</p>
         ${detailsMarkup ? `<div class="item-detail-list">${detailsMarkup}</div>` : ""}
       </div>
       <div class="item-meta">
@@ -592,6 +562,36 @@ function renderItem(item, sectionId) {
 }
 
 function renderGroup(group, sectionLabel, sectionId) {
+  const groupId = `${sectionId}-${slugify(group.title)}`;
+  const isCollapsible = Boolean(group.collapsible);
+  const isExpanded = !group.collapsed;
+  const groupPreview = group.preview || buildHighlights(group.items, 2);
+
+  if (isCollapsible) {
+    return `
+      <section class="lane-group">
+        <button
+          class="group-header"
+          type="button"
+          aria-expanded="${String(isExpanded)}"
+          aria-controls="${groupId}"
+          data-group-toggle
+        >
+          <div class="group-copy">
+            <p class="eyebrow">${group.kicker || sectionLabel}</p>
+            <h3 class="lane-group-title">${group.title}</h3>
+            <p class="lane-group-note">${group.subtitle}</p>
+            <p class="group-preview">${groupPreview}</p>
+          </div>
+          <span class="group-chevron" aria-hidden="true"></span>
+        </button>
+        <div id="${groupId}" class="group-items"${isExpanded ? "" : " hidden"}>
+          ${group.items.map((item) => renderItem(item, sectionId)).join("")}
+        </div>
+      </section>
+    `;
+  }
+
   return `
     <section class="lane-group">
       <div class="lane-group-head">
@@ -641,7 +641,28 @@ function renderExplorer() {
     .join("");
 }
 
+function initializeGroupToggles() {
+  if (!explorer) {
+    return;
+  }
+
+  explorer.querySelectorAll("[data-group-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const controlsId = button.getAttribute("aria-controls");
+      const content = controlsId ? document.getElementById(controlsId) : null;
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute("aria-expanded", String(!isExpanded));
+
+      if (content) {
+        content.hidden = isExpanded;
+      }
+    });
+  });
+}
+
 renderExplorer();
+initializeGroupToggles();
 
 if (typeof initializeRailNavigation === "function") {
   initializeRailNavigation();
