@@ -655,10 +655,10 @@ html[data-theme="dark"] .meta-row > span {
 
 .hero-board {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
-    "featured"
-    "status";
+    "writing featured"
+    "status status";
   gap: 16px;
   align-self: start;
   min-width: 0;
@@ -692,6 +692,11 @@ html[data-theme="dark"] .meta-row > span {
   border-radius: 14px;
   background: color-mix(in srgb, var(--signal-accent) 12%, var(--chip-bg));
   color: color-mix(in srgb, var(--signal-accent) 78%, var(--ink));
+}
+
+.signal-card-writing {
+  --signal-accent: var(--accent-amber);
+  grid-area: writing;
 }
 
 .signal-card-featured {
@@ -1646,10 +1651,10 @@ html[data-theme="dark"] .meta-row > span {
   }
 
   .hero-board {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "featured"
-      "status";
+      "writing featured"
+      "status status";
   }
 
   .lane-grid {
@@ -1753,6 +1758,7 @@ html[data-theme="dark"] .meta-row > span {
   .hero-board {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
+      "writing"
       "featured"
       "status";
   }

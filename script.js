@@ -153,64 +153,6 @@ const portfolioSections = [
     ]
   },
   {
-    label: "Writing",
-    title: "Writing, Notes, and Things I Want to Say",
-    subtitle: "A place for essays, shorter posts, reading lists, and thoughts that do not fit inside a project caption.",
-    accent: "var(--accent-amber)",
-    summary: "Essays · notes · public thinking",
-    groups: [
-      {
-        kicker: "Featured",
-        title: "Recent pieces",
-        subtitle: "Longer arguments and shorter notes that sit beside the work instead of behind it.",
-        items: [
-          {
-            title: "On designing for slow reading",
-            subtitle: "Why some interfaces should help people stay with the material rather than rush them through it.",
-            status: "live",
-            chips: ["essay", "featured"],
-            href: "writing/on-designing-for-slow-reading.html"
-          },
-          {
-            title: "Taxonomy before templates",
-            subtitle: "Why structure and relationships usually need to be settled before layout systems can do useful work.",
-            status: "live",
-            chips: ["essay", "method"],
-            href: "writing/taxonomy-before-templates.html"
-          },
-          {
-            title: "Keeping a working index",
-            subtitle: "Why portfolios, research repositories, and note systems benefit from similar structural habits.",
-            status: "live",
-            chips: ["post", "systems"],
-            href: "writing/keeping-a-working-index.html"
-          }
-        ]
-      },
-      {
-        kicker: "Archive",
-        title: "What lives there",
-        subtitle: "The archive can hold multiple tempos at once without being buried in a misc section.",
-        items: [
-          {
-            title: "Writing archive",
-            subtitle: "The full home for essays, notes, reading lists, and public thought fragments.",
-            status: "current",
-            chips: ["archive", "index"],
-            href: "writing/index.html"
-          },
-          {
-            title: "Reading list for structured content teams",
-            subtitle: "Books, practices, and habits useful for teams working with archives, metadata, and dense interfaces.",
-            status: "live",
-            chips: ["list", "references"],
-            href: "writing/reading-list-for-structured-content-teams.html"
-          }
-        ]
-      }
-    ]
-  },
-  {
     label: "Experience",
     title: "Experience",
     subtitle: "Industry roles and applied research internships.",
