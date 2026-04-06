@@ -550,6 +550,7 @@ function renderGroup(group, sectionLabel, sectionId) {
 
 function renderLane(section, sectionIndex) {
   const sectionId = section.id || slugify(section.label);
+  const laneContentId = `${sectionId}-content`;
   const sectionVisual = getSectionVisual(sectionId);
   const sectionHighlights = section.summary || buildHighlights(
     section.groups.flatMap((group) => group.items),
@@ -564,9 +565,18 @@ function renderLane(section, sectionIndex) {
           <h2 class="lane-title">${section.title}</h2>
           <p class="lane-summary">${section.subtitle}</p>
         </div>
-        <p class="lane-highlight">${sectionHighlights}</p>
+        <button
+          class="lane-toggle"
+          type="button"
+          aria-expanded="true"
+          aria-controls="${laneContentId}"
+          data-lane-toggle
+        >
+          <span class="lane-highlight">${sectionHighlights}</span>
+          <span class="chevron" aria-hidden="true"></span>
+        </button>
       </header>
-      <div class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}">
+      <div id="${laneContentId}" class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}">
         ${section.groups.map((group) => renderGroup(group, section.label, sectionId)).join("")}
       </div>
     </section>
@@ -603,7 +613,28 @@ function initializeGroupToggles() {
   });
 }
 
+function initializeLaneToggles() {
+  if (!explorer) {
+    return;
+  }
+
+  explorer.querySelectorAll("[data-lane-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const controlsId = button.getAttribute("aria-controls");
+      const content = controlsId ? document.getElementById(controlsId) : null;
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute("aria-expanded", String(!isExpanded));
+
+      if (content) {
+        content.hidden = isExpanded;
+      }
+    });
+  });
+}
+
 renderExplorer();
+initializeLaneToggles();
 initializeGroupToggles();
 
 if (typeof initializeRailNavigation === "function") {

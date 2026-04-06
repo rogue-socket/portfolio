@@ -817,6 +817,31 @@ html[data-theme="dark"] .meta-row > span {
   align-items: end;
 }
 
+.lane-toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: end;
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: right;
+  cursor: pointer;
+}
+
+.lane-toggle:hover .lane-highlight,
+.lane-toggle:focus-visible .lane-highlight {
+  color: var(--ink);
+}
+
+.lane-toggle:focus-visible {
+  outline: none;
+}
+
 .lane-copy {
   display: grid;
   gap: 8px;
@@ -847,6 +872,10 @@ html[data-theme="dark"] .meta-row > span {
   text-transform: uppercase;
   line-height: 1.5;
   text-align: right;
+}
+
+.lane-toggle[aria-expanded="true"] .chevron {
+  transform: rotate(225deg);
 }
 
 .lane-grid {
@@ -1770,6 +1799,12 @@ html[data-theme="dark"] .meta-row > span {
   .lane-head {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
+  }
+
+  .lane-toggle {
+    justify-items: start;
+    max-width: none;
+    text-align: left;
   }
 
   .lane-highlight {
