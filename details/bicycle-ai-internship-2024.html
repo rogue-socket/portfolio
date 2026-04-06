@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bicycle AI Internship | Yash Agrawal</title>
+  <meta
+    name="description"
+    content="Internship detail page for Yash Agrawal's AI Engineering Intern role at Bicycle AI."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page">
+  <aside class="side-rail" aria-label="Page navigation">
+    <div class="side-rail-shell">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+      <nav class="rail-nav">
+        <a class="rail-link" href="../index.html" aria-label="Go to home">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Home</span>
+        </a>
+        <a class="rail-link" href="../index.html#experience" aria-label="Go to experience">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Experience</span>
+        </a>
+        <a class="rail-link" href="../writing/index.html" aria-label="Go to writing">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Writing</span>
+        </a>
+        <a class="rail-link" href="../index.html#contact" aria-label="Go to contact">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Contact</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="../index.html#experience">Experience</a>
+      <span>/</span>
+      <span>Bicycle AI Internship</span>
+    </nav>
+
+    <header class="detail-hero">
+      <div class="detail-brand">
+        <span class="detail-brand-mark" aria-hidden="true">
+          <img src="../assets/logos/bicycle-mark.svg" alt="" class="detail-brand-logo">
+        </span>
+        <p class="detail-brand-name">Bicycle AI</p>
+      </div>
+      <p class="detail-label">AI Engineering Internship</p>
+      <h1 class="detail-title">Bicycle AI</h1>
+      <p class="detail-summary">
+        Worked on context-aware SQL generation and model benchmarking,
+        using reasoning-oriented agent approaches to improve quality and model selection.
+      </p>
+    </header>
+
+    <main class="detail-main">
+      <dl class="detail-rows">
+        <div class="detail-row">
+          <dt>Role</dt>
+          <dd>AI Engineering Intern</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Duration</dt>
+          <dd>May 2024 - July 2024</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Location</dt>
+          <dd>Hyderabad, On-Site</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Focus</dt>
+          <dd>Context-aware SQL generation, chain-of-thought prompting, ReAct agents, and LLM benchmarking.</dd>
+        </div>
+      </dl>
+
+      <section class="card-grid" aria-label="Internship highlights">
+        <article class="card">
+          <p class="card-kicker">Accuracy</p>
+          <h2>Context-aware SQL generation</h2>
+          <p>Improved SQL generation accuracy for context-driven tasks by refining prompts and agent execution flow.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Reasoning</p>
+          <h2>Chain-of-thought + ReAct</h2>
+          <p>Applied chain-of-thought reasoning and ReAct agent strategies to increase reliability across query scenarios.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Evaluation</p>
+          <h2>Custom LLM benchmark framework</h2>
+          <p>Designed a benchmark framework to evaluate, compare, and rank models on context-focused SQL workloads.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Outcome</p>
+          <h2>Better model and prompt decisions</h2>
+          <p>Created a repeatable evaluation process for selecting model and prompting combinations based on evidence.</p>
+        </article>
+      </section>
+
+      <section class="glass-panel internship-resource-panel" aria-label="Supporting documentation">
+        <p class="related-label">Documentation</p>
+        <h2>Certificate and internship documents</h2>
+        <div class="resource-links">
+          <a class="resource-link" href="https://drive.google.com/file/d/1ZMjD_A_s8_QPNIZo8DahAcaeTOS3-53o/view?usp=sharing" target="_blank" rel="noreferrer">View Certificate</a>
+        </div>
+        <p class="internship-resource-note">Embedded internship document:</p>
+        <div class="resource-doc-grid">
+          <article class="resource-doc">
+            <div class="resource-doc-head">
+              <h3 class="resource-doc-title">Bicycle Notion Export</h3>
+              <a class="resource-doc-open" href="../info/Bicycle_AI_notion.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            </div>
+            <iframe class="resource-embed" src="../info/Bicycle_AI_notion.pdf#view=FitH" title="Bicycle internship Notion export PDF" loading="lazy"></iframe>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

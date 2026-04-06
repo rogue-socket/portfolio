@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siemens EDA Internship | Yash Agrawal</title>
+  <meta
+    name="description"
+    content="Internship detail page for Yash Agrawal's Developer Intern role at Siemens EDA."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page">
+  <aside class="side-rail" aria-label="Page navigation">
+    <div class="side-rail-shell">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+      <nav class="rail-nav">
+        <a class="rail-link" href="../index.html" aria-label="Go to home">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Home</span>
+        </a>
+        <a class="rail-link" href="../index.html#experience" aria-label="Go to experience">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Experience</span>
+        </a>
+        <a class="rail-link" href="../writing/index.html" aria-label="Go to writing">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Writing</span>
+        </a>
+        <a class="rail-link" href="../index.html#contact" aria-label="Go to contact">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Contact</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="../index.html#experience">Experience</a>
+      <span>/</span>
+      <span>Siemens EDA Internship</span>
+    </nav>
+
+    <header class="detail-hero">
+      <div class="detail-brand">
+        <span class="detail-brand-mark" aria-hidden="true">
+          <img src="../assets/logos/siemens-mark.svg" alt="" class="detail-brand-logo">
+        </span>
+        <p class="detail-brand-name">Siemens EDA</p>
+      </div>
+      <p class="detail-label">Developer Internship</p>
+      <h1 class="detail-title">Siemens EDA</h1>
+      <p class="detail-summary">
+        Built LangGraph-driven workflows in Siemens Capital Copilot to enable conversational,
+        structured modifications of engineering design artifacts and improve developer productivity.
+      </p>
+    </header>
+
+    <main class="detail-main">
+      <dl class="detail-rows">
+        <div class="detail-row">
+          <dt>Role</dt>
+          <dd>Developer Intern</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Duration</dt>
+          <dd>January 2026 - Present</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Location</dt>
+          <dd>Hyderabad, On-Site</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Company</dt>
+          <dd>Siemens EDA (Siemens Digital Industries Software)</dd>
+        </div>
+      </dl>
+
+      <section class="card-grid" aria-label="Internship highlights">
+        <article class="card">
+          <p class="card-kicker">Workflow</p>
+          <h2>Conversational design updates</h2>
+          <p>Enabled conversational modification of engineering design artifacts in Siemens Capital Copilot.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Architecture</p>
+          <h2>LangGraph + tool calls</h2>
+          <p>Implemented a LangGraph workflow integrating tool calls and structured design update paths.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Agents</p>
+          <h2>Coordinator-led productivity framework</h2>
+          <p>Built an agentic framework where a coordinator agent orchestrates specialized agents end to end.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Outcome</p>
+          <h2>Customizable team workflows</h2>
+          <p>Teams can create and compose custom agents, tools, and skills for their development workflows.</p>
+        </article>
+      </section>
+
+      <section class="glass-panel internship-resource-panel" aria-label="Supporting documentation">
+        <p class="related-label">Documentation</p>
+        <h2>Supporting material</h2>
+        <p class="internship-resource-note">
+          Public certificate and Notion documentation for this internship will be added when available.
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

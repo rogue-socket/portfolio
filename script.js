@@ -169,21 +169,24 @@ const portfolioSections = [
             subtitle: "Built LangGraph workflows in Siemens Capital Copilot and developed an agentic productivity framework.",
             status: "current",
             chips: ["Jan 2026 - Present", "Hyderabad"],
-            logo: "assets/logos/siemens-mark.svg"
+            logo: "assets/logos/siemens-mark.svg",
+            href: "details/siemens-eda-internship.html"
           },
           {
             title: "Software Engineering Intern, DocLens.ai",
             subtitle: "Developed medical necessity evaluation and RAG pipelines for insurance workflows.",
             status: "live",
             chips: ["May - Jul 2025", "Bengaluru"],
-            logo: "assets/logos/doclens.png"
+            logo: "assets/logos/doclens.png",
+            href: "details/doclens-ai-internship-2025.html"
           },
           {
             title: "AI Engineering Intern, Bicycle AI",
             subtitle: "Improved context-aware SQL generation and built LLM benchmarking frameworks.",
             status: "live",
             chips: ["May - Jul 2024", "Hyderabad"],
-            logo: "assets/logos/bicycle-mark.svg"
+            logo: "assets/logos/bicycle-mark.svg",
+            href: "details/bicycle-ai-internship-2024.html"
           }
         ]
       }

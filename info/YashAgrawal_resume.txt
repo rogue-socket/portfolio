@@ -1,0 +1,55 @@
+Yash Agrawal
+/githubGitHub|/linkedinLinkedIn|/envel⌢peyash.agr1510@gmail.com|♂¶obile+91 7780760979|LeetCode|Updated:15/3/2026
+Education
+Vellore Institute of T echnology, Vellore - B.T ech CSE (2022-2026) CGPA:9.42/10.0
+Work Experience
+Siemens EDA- Hyderabad, On-Site Jan 2026 - Present
+Developer Intern
+•Enabled conversational modiﬁcation of engineering design artifacts in Siemens Capital Copilot by developing aLang-
+Graph workﬂowintegrating tool calls and structured design updates.
+•Built anagentic developer productivity frameworkwhere a coordinator agent orchestrates specialized agents for
+end-to-end workﬂows, allowing teams to create custom agents, tools, and skills.
+DocLens.ai- Bengaluru, On-Site May - July 2025
+Software Engineering Intern Certiﬁcate|Notion
+•Developed aMedical Necessity Evaluation pipelinecomparing medical summaries with ground truth to generate
+reports assessing treatment appropriateness for insurance workﬂows.
+•Improved disease ground-truth retrieval and report accuracy usingNLP,Hybrid Semantic Search, andRAG.
+•Implemented a document ingestion pipeline generating contextual Q&A usingKnowledge Graphs,RAGAs,DeepEval,
+andtopic modellingfor a chat-based recommendation system.
+Bicycle AI- Hyderabad, On-Site May - July 2024
+AI Engineering Intern Certiﬁcate|Notion
+•Improved context awareSQL generation accuracyusingChain-of-Thought reasoningandReAct agents.
+•Designed acustom benchmarking frameworkto evaluate and rank LLMs on context driven SQL generation tasks.
+Skills
+LanguagesPython, Java, C++, SQL, JavaScript, C, R
+AI Agent FrameworksLangChain, LangGraph, LlamaIndex, Hugging Face Agents
+Agent SystemsVector Databases(Qdrant, Chroma), Knowledge Graphs(Neo4j), Evaluations(RAGAs, DeepEval)
+Agent ConceptsRAG, MCP, A2A, VLM, Agent Skills, Memory Architecture, Embeddings, Pipelines & Architecture
+Data, AI & MLPyT orch, T ensorFlow, Transformers, LLM Fine-Tuning, NLP, Data Mining, scikit-learn
+FoundationWeb-Dev, AWS, GitHub, Web Scraping, API Design & T esting (Postman, Jest, Playwright)
+Projects
+ClosedClaw- Capsule Based Multi-Agent Orchestrator -LangGraph, LangChain, MCPGitHub
+•Anorchestrationframework thatcreates,discovers, andstoresagents at runtime while maintaining tools and skills.
+•Implementedautomated agent activationwithhuman-in-the-loop, andagent speciﬁc memory management.
+ForrestRun- Deterministic Runtime for AI Workﬂows -PythonGitHub
+•Built anexecution runtime for AI workﬂowswithworkﬂow hashing,state versioning, andstep level execution tracing.
+•Implemented arun lifecycle enginewithretry policies,check-pointing, and a”resume”for long running agent pipelines.
+•Developed areplay and observability systemenabling historical runs to be reconstructed withstep contracts,branch-
+ing inspection, andexecution visualization.
+MyCompAgent- Browser Control Agent -Playwright, CLI AutomationGitHub
+•Built abrowser automation agentcapable of executing real world actions through playwright commands.
+•Implemented anadaptive memory systemwhere the agent records successful strategies and failure patterns, allowing
+it tolearn eﬀective solutionsand improve.
+Aqua Twin- AI Agent for Water Management Digital Twin -LangGraphDemo|GitHub
+•Built a workﬂow for telemetry data access, historical simulation comparison, real time control, and next best action.
+•Implementedsmart simulation capabilitieswithautomatic parameter generationand outcome analysis.
+Real Time VLM Pedagogy-LangGraph, VLM(Visual Language Model), OpenCVGitHub
+•Developed a real time tutoring system using computer vision, audio analysis, and Vision Language Model to facilitate
+stepwise feedback for handwritten math problems and guitar technique.
+•Designed an event based pipeline utilizing OpenCV to enabling low latency (300ms) interactive feedback.
+Other:NumPy Neural Network, Agentic Article Writer, Medical Consultation Report Generator, Scrollable: phone control agent,
+Learnwithme: website to ﬁnd people to learn with, notes-me: android second brain, Slack-Twitter Bot, Spotify-YouTube Migrator
+Certiﬁcations
+Supervised Machine Learning: Regression and ClassiﬁcationDeepLearning.AI(2023) Link
+Agents Course, LLM CourseHugging Face(2025) Link
+Google Cloud Skills Boost: LLM, GenAI, TransformersGoogle Cloud(2023) Proﬁle
