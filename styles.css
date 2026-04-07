@@ -165,13 +165,13 @@ input {
 .side-rail-shell {
   --rail-progress: 0;
   --rail-collapsed-width: 54px;
-  --rail-expanded-width: clamp(122px, 9vw, 146px);
+  --rail-expanded-width: clamp(208px, 14vw, 240px);
   position: relative;
   display: grid;
   align-items: start;
   gap: 14px;
   width: var(--rail-collapsed-width);
-  padding: 14px 8px;
+  padding: 14px 10px;
   border: 1px solid color-mix(in srgb, var(--line-strong) 75%, transparent);
   border-radius: 30px;
   background: color-mix(in srgb, var(--bg) 84%, transparent);
@@ -191,13 +191,14 @@ input {
 .side-rail:focus-within .side-rail-shell {
   gap: 18px;
   width: var(--rail-expanded-width);
-  padding: 16px 12px;
+  padding: 16px 10px;
 }
 
 .side-rail .theme-toggle {
   position: relative;
   justify-content: center;
-  justify-self: center;
+  justify-self: end;
+  align-self: start;
   width: 36px;
   height: 36px;
   padding: 0;
@@ -340,7 +341,7 @@ input {
 
 .side-rail:hover .rail-link-text,
 .side-rail:focus-within .rail-link-text {
-  max-width: 96px;
+  max-width: 190px;
   opacity: 0.78;
 }
 
@@ -428,11 +429,26 @@ input {
   max-width: none;
 }
 
-.hero-layout {
+.home-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  grid-template-areas:
+    "hero board"
+    "main main";
   gap: 24px;
   align-items: start;
+}
+
+.page-home .hero {
+  grid-area: hero;
+}
+
+.page-home .hero-board {
+  grid-area: board;
+}
+
+.page-home main {
+  grid-area: main;
 }
 
 .hero-copy {
@@ -445,7 +461,6 @@ input {
 .eyebrow,
 .meta-label,
 .section-index,
-.section-label,
 .section-count,
 .chip,
 .detail-label,
@@ -462,7 +477,6 @@ input {
 
 .eyebrow,
 .meta-label,
-.section-label,
 .section-index,
 .section-count,
 .detail-label,
@@ -588,7 +602,7 @@ input {
 .hero-action-icon,
 .meta-symbol,
 .signal-card-mark,
-.section-symbol,
+.lane-title-icon,
 .item-icon,
 .item-link-mark {
   display: inline-flex;
@@ -605,7 +619,7 @@ input {
 .hero-action-icon svg,
 .meta-symbol svg,
 .signal-card-mark svg,
-.section-symbol svg,
+.lane-title-icon svg,
 .item-icon svg,
 .item-link-mark svg {
   display: block;
@@ -691,12 +705,128 @@ html[data-theme="dark"] .meta-row > span {
   margin-top: 8px;
 }
 
+.lane-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.lane-half {
+  width: 100%;
+}
+
+.lane-column {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 12px;
+}
+
+.lane-column > .lane {
+  height: auto;
+}
+
+.lane-row .lane-compact {
+  width: 100%;
+  max-width: none;
+}
+
+.lane-leadership .lane-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 12px;
+}
+
+.lane-leadership .lane-group {
+  height: 100%;
+  display: grid;
+  align-content: start;
+}
+
+.lane-leadership .lane-group:last-child {
+  padding: 12px 14px;
+}
+
+.lane-leadership .lane-group:last-child .item-row {
+  border-top: 0;
+  padding-top: 6px;
+}
+
+.lane-cta {
+  text-decoration: none;
+}
+
+.lane-cta-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.lane-cta-icon {
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--lane-accent) 22%, var(--chip-border));
+  background: color-mix(in srgb, var(--lane-accent) 12%, var(--chip-bg));
+  color: color-mix(in srgb, var(--lane-accent) 78%, var(--ink));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lane-cta-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.lane-cta-label {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lane-cta-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+}
+
+.lane-cta-arrow {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.lane-cta:hover .lane-cta-arrow,
+.lane-cta:focus-visible .lane-cta-arrow {
+  transform: translateX(2px);
+  color: var(--ink);
+  border-color: var(--surface-hover-border);
+  background: var(--surface-hover);
+}
+
 .hero-board {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
-    "writing featured"
-    "status status";
+    "writing featured";
   gap: 12px;
   align-self: start;
   min-width: 0;
