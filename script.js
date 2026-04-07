@@ -9,7 +9,6 @@ const portfolioSections = [
       {
         kicker: "Current direction",
         title: "What I am building toward",
-        subtitle: "The recurring problems I keep choosing rather than a loose stack of tools.",
         items: [
           {
             title: "AI agents and deliberate workflows",
@@ -40,7 +39,6 @@ const portfolioSections = [
       {
         kicker: "Systems",
         title: "Runtimes and infrastructure",
-        subtitle: "Foundational layers for creating, deploying, observing, and evaluating agents.",
         items: [
           {
             title: "ClosedClaw",
@@ -75,7 +73,6 @@ const portfolioSections = [
       {
         kicker: "Applications",
         title: "Workflow-facing products",
-        subtitle: "Agents applied to actual domains rather than sandbox demos.",
         items: [
           {
             title: "MyCompAgent",
@@ -114,7 +111,6 @@ const portfolioSections = [
       {
         kicker: "Adjacent work",
         title: "ML foundations and experiments",
-        subtitle: "Related exploration across VLMs, ML pipelines, and product experiments.",
         items: [
           {
             title: "Real Time VLM Pedagogy",
@@ -155,14 +151,12 @@ const portfolioSections = [
   {
     label: "Experience",
     title: "Experience",
-    subtitle: "Industry roles and applied research internships.",
     accent: "var(--accent-slate)",
     summary: "Siemens EDA · DocLens.ai · Bicycle AI",
     groups: [
       {
         kicker: "Roles",
         title: "Roles",
-        subtitle: "Applied work across enterprise copilots, medical workflows, and LLM evaluation.",
         items: [
           {
             title: "Developer Intern, Siemens EDA",
@@ -195,14 +189,12 @@ const portfolioSections = [
   {
     label: "Education",
     title: "Education and Certifications",
-    subtitle: "Academic background and professional certifications.",
     accent: "var(--accent-olive)",
     summary: "VIT · AI · machine learning",
     groups: [
       {
         kicker: "Education",
         title: "Academic background",
-        subtitle: "Coursework and training that support the applied work.",
         items: [
           {
             title: "Vellore Institute of Technology",
@@ -226,10 +218,6 @@ const portfolioSections = [
       {
         kicker: "Certifications",
         title: "Certifications",
-        subtitle: "Additional training across AI, machine learning, and GenAI.",
-        collapsible: true,
-        collapsed: true,
-        preview: "ML · LLMs · GenAI",
         items: [
           {
             title: "Supervised Machine Learning: Regression and Classification",
@@ -262,43 +250,51 @@ const portfolioSections = [
     subtitle: "Communication leadership and the topics I keep returning to.",
     accent: "var(--accent-rose)",
     summary: "Toastmasters · math · philosophy",
+    half: true,
     groups: [
       {
-        kicker: "Leadership",
-        title: "Communication and community",
-        subtitle: "Work that sharpened speaking, teaching, and structured communication.",
+        title: "Leadership",
+        hideKicker: true,
+        hideSubtitle: true,
         items: [
           {
             title: "Toastmasters International",
-            subtitle: "Member and officer roles including VP Education, President, and Program Quality Director.",
+            subtitle: "",
+            collapsible: true,
             status: "note",
-            chips: ["2023 - 2025", "leadership"],
-            logo: "assets/logos/toastmasters.png"
+            chips: ["2024 - 2025", "leadership"],
+            logo: "assets/logos/toastmasters.png",
+            awards: {
+              title: "Contest awards",
+              levels: "Club · Area · Division",
+              wins: "Wins at club and division levels",
+              contests: [
+                "Evaluation Speech Contest",
+                "International Speech Contest",
+                "Table Topics Contest",
+                "Humorous Speech Contest"
+              ]
+            },
+            timeline: [
+              { label: "Jan 2024 - Jul 2024", title: "Vice President of Education" },
+              { label: "Jul 2024 - Dec 2024", title: "President" },
+              { label: "Jul 2024 - Jul 2025", title: "Program Quality Director, Co-Secretary" }
+            ]
           }
         ]
       },
       {
-        kicker: "Interests",
-        title: "What I stay curious about",
-        subtitle: "Topics that influence how I think about systems, clarity, and learning.",
+        title: "Interests",
+        hideKicker: true,
+        hideSubtitle: true,
         items: [
           {
-            title: "Math and Physics",
-            subtitle: "Curiosity in systems thinking and theoretical problem-solving.",
+            title: "",
+            subtitle: "",
             status: "note",
-            chips: ["math", "physics"]
-          },
-          {
-            title: "Philosophy",
-            subtitle: "Thinking about reasoning, ethics, and systems of knowledge.",
-            status: "note",
-            chips: ["philosophy", "reading"]
-          },
-          {
-            title: "Music",
-            subtitle: "Ukulele and keyboard practice.",
-            status: "note",
-            chips: ["ukulele", "keyboard"]
+            hideTitle: true,
+            hideIcon: true,
+            tags: ["Math", "Physics", "Philosophy", "Music"]
           }
         ]
       }
@@ -307,18 +303,16 @@ const portfolioSections = [
   {
     label: "Contact",
     title: "Contact and Links",
-    subtitle: "Direct ways to start a conversation, review work, or connect.",
+    compact: true,
+    half: true,
     accent: "var(--accent-sage)",
     summary: "Email · LinkedIn · GitHub",
     groups: [
       {
-        kicker: "Direct",
-        title: "Best routes for collaboration",
-        subtitle: "If the work is relevant, these are the fastest ways to reach me.",
+        title: "Contact links",
         items: [
           {
             title: "Email",
-            subtitle: "yash.agr1510@gmail.com",
             status: "open",
             chips: ["contact"],
             href: "mailto:yash.agr1510@gmail.com",
