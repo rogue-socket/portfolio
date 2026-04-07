@@ -320,7 +320,6 @@ const portfolioSections = [
           },
           {
             title: "LinkedIn",
-            subtitle: "www.linkedin.com/in/yash-agrawal-7833a4246",
             status: "open",
             chips: ["network"],
             href: "https://www.linkedin.com/in/yash-agrawal-7833a4246",
@@ -329,7 +328,6 @@ const portfolioSections = [
           },
           {
             title: "GitHub",
-            subtitle: "github.com/rogue-socket",
             status: "open",
             chips: ["code"],
             href: "https://github.com/rogue-socket",
@@ -476,10 +474,52 @@ function renderItem(item, sectionId) {
   const chipsLine = (item.chips || []).join(" · ");
   const itemIcon = getItemIcon(sectionId, item);
   const hasLogo = Boolean(item.logo);
+  const hasTimeline = (item.timeline || []).length > 0;
+  const hasAwards = Boolean(item.awards);
+  const hasTags = Array.isArray(item.tags) && item.tags.length > 0;
+  const subtitleMarkup = item.subtitle ? `<p class="item-subtitle">${item.subtitle}</p>` : "";
+  const titleMarkup = item.hideTitle ? "" : `<h4 class="item-title">${item.title}</h4>`;
+  const iconMarkup = item.hideIcon
+    ? ""
+    : `<span class="item-icon${hasLogo ? " is-logo" : ""}" aria-hidden="true">${hasLogo ? `<img src="${item.logo}" alt="" class="item-logo-img">` : renderIcon(itemIcon)}</span>`;
+  const tagsMarkup = hasTags
+    ? `<div class="item-tags">${item.tags.map((tag) => `<span class="item-tag">${tag}</span>`).join("")}</div>`
+    : "";
+  const timelineMarkup = (item.timeline || [])
+    .map(
+      (step, index) => `
+        <div class="timeline-step">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="timeline-copy">
+            <p class="timeline-title">${step.title}</p>
+            <p class="timeline-label">${step.label}</p>
+          </div>
+        </div>
+      `
+    )
+    .join("");
+  const awardsMarkup = item.awards ? `
+        <div class="item-awards">
+          <p class="item-awards-title">${item.awards.title || "Awards"}</p>
+          <p class="item-awards-meta">${item.awards.levels}${item.awards.wins ? ` · ${item.awards.wins}` : ""}</p>
+          <ul class="item-awards-list">
+            ${item.awards.contests.map((contest) => `<li>${contest}</li>`).join("")}
+          </ul>
+        </div>
+      ` : "";
   const detailsMarkup = (item.details || [])
     .map((detail) => `<p class="item-detail"><span class="item-detail-label">${detail.label}</span>${detail.text}</p>`)
     .join("");
-  const attrs = [`class="item-row${item.href ? " is-link" : ""}"`];
+  const hasExtras = Boolean(timelineMarkup || awardsMarkup || detailsMarkup);
+  const isItemCollapsible = Boolean(item.collapsible) && hasExtras;
+  const isItemCollapsed = Boolean(item.collapsed);
+  const itemId = `${sectionId}-${slugify(item.title || item.subtitle || "item")}`;
+  const toggleMarkup = isItemCollapsible
+    ? `<button class="item-toggle" type="button" aria-expanded="${String(!isItemCollapsed)}" aria-controls="${itemId}-extra" data-item-toggle>
+        <span class="chevron" aria-hidden="true"></span>
+      </button>`
+    : "";
+  const attrs = [`class="item-row${item.href ? " is-link" : ""}${hasTimeline ? " has-timeline" : ""}${hasAwards ? " has-awards" : ""}${isItemCollapsible ? " is-collapsible" : ""}"`];
 
   if (item.href) {
     attrs.push(`href="${item.href}"`);
@@ -492,17 +532,22 @@ function renderItem(item, sectionId) {
   return `
     <${tagName} ${attrs.join(" ")}>
       <div class="item-main">
-        <div class="item-top">
-          <span class="item-icon${hasLogo ? " is-logo" : ""}" aria-hidden="true">${hasLogo ? `<img src="${item.logo}" alt="" class="item-logo-img">` : renderIcon(itemIcon)}</span>
+        <div class="item-top${item.hideIcon ? " no-icon" : ""}">
+          ${iconMarkup}
           <div class="item-heading">
             <div class="item-title-row">
-              <h4 class="item-title">${item.title}</h4>
+              ${titleMarkup}
             </div>
           </div>
-          ${item.href ? `<span class="item-link-mark" aria-hidden="true">${renderIcon(item.external ? "external" : "arrow")}</span>` : ""}
+          ${toggleMarkup || (item.href ? `<span class="item-link-mark" aria-hidden="true">${renderIcon(item.external ? "external" : "arrow")}</span>` : "")}
         </div>
-        <p class="item-subtitle">${item.subtitle}</p>
-        ${detailsMarkup ? `<div class="item-detail-list">${detailsMarkup}</div>` : ""}
+        ${subtitleMarkup}
+        ${tagsMarkup}
+        ${hasExtras ? `<div id="${itemId}-extra" class="item-extra"${isItemCollapsed ? " hidden" : ""}>
+          ${timelineMarkup ? `<div class="item-timeline" aria-label="Leadership timeline">${timelineMarkup}</div>` : ""}
+          ${awardsMarkup}
+          ${detailsMarkup ? `<div class="item-detail-list">${detailsMarkup}</div>` : ""}
+        </div>` : ""}
       </div>
       <div class="item-meta">
         ${chipsLine ? `<span class="chip-line">${chipsLine}</span>` : ""}
@@ -512,10 +557,24 @@ function renderItem(item, sectionId) {
 }
 
 function renderGroup(group, sectionLabel, sectionId) {
-  const groupId = `${sectionId}-${slugify(group.title)}`;
+  const isCompact = sectionId === "contact" || group.compact;
+  const groupId = `${sectionId}-${slugify(group.title || sectionLabel)}`;
   const isCollapsible = Boolean(group.collapsible);
   const isExpanded = !group.collapsed;
   const groupPreview = group.preview || buildHighlights(group.items, 2);
+  const kickerText = group.kicker || sectionLabel;
+  const kickerMarkup = group.hideKicker || !kickerText ? "" : `<p class="eyebrow">${kickerText}</p>`;
+  const subtitleMarkup = group.hideSubtitle || !group.subtitle ? "" : `<p class="lane-group-note">${group.subtitle}</p>`;
+
+  if (isCompact) {
+    return `
+      <section class="lane-group lane-group-compact">
+        <div class="group-items">
+          ${group.items.map((item) => renderItem(item, sectionId)).join("")}
+        </div>
+      </section>
+    `;
+  }
 
   if (isCollapsible) {
     return `
@@ -528,9 +587,9 @@ function renderGroup(group, sectionLabel, sectionId) {
           data-group-toggle
         >
           <div class="group-copy">
-            <p class="eyebrow">${group.kicker || sectionLabel}</p>
+            ${kickerMarkup}
             <h3 class="lane-group-title">${group.title}</h3>
-            <p class="lane-group-note">${group.subtitle}</p>
+            ${subtitleMarkup}
             <p class="group-preview">${groupPreview}</p>
           </div>
           <span class="group-chevron" aria-hidden="true"></span>
@@ -545,9 +604,9 @@ function renderGroup(group, sectionLabel, sectionId) {
   return `
     <section class="lane-group">
       <div class="lane-group-head">
-        <p class="eyebrow">${group.kicker || sectionLabel}</p>
+        ${kickerMarkup}
         <h3 class="lane-group-title">${group.title}</h3>
-        <p class="lane-group-note">${group.subtitle}</p>
+        ${subtitleMarkup}
       </div>
       <div class="group-items">
         ${group.items.map((item) => renderItem(item, sectionId)).join("")}
@@ -560,31 +619,37 @@ function renderLane(section, sectionIndex) {
   const sectionId = section.id || slugify(section.label);
   const laneContentId = `${sectionId}-content`;
   const sectionVisual = getSectionVisual(sectionId);
+  const isCompact = Boolean(section.compact);
+  const isCollapsed = Boolean(section.collapsed);
   const sectionHighlights = section.summary || buildHighlights(
     section.groups.flatMap((group) => group.items),
     3
   );
-
-  return `
-    <section id="${sectionId}" class="lane" style="--lane-accent: ${section.accent}; --stagger: ${sectionIndex};">
-      <header class="lane-head">
-        <div class="lane-copy">
-          <p class="section-label"><span class="section-symbol" aria-hidden="true">${renderIcon(sectionVisual.icon)}</span><span>${section.label}</span></p>
-          <h2 class="lane-title">${section.title}</h2>
-          <p class="lane-summary">${section.subtitle}</p>
-        </div>
+  const toggleMarkup = isCompact ? "" : `
         <button
           class="lane-toggle"
           type="button"
-          aria-expanded="true"
+          aria-expanded="${String(!isCollapsed)}"
           aria-controls="${laneContentId}"
           data-lane-toggle
         >
           <span class="lane-highlight">${sectionHighlights}</span>
           <span class="chevron" aria-hidden="true"></span>
         </button>
+  `;
+
+  return `
+    <section id="${sectionId}" class="lane${isCompact ? " lane-compact" : ""}${section.half ? " lane-half" : ""}${sectionId === "leadership" ? " lane-leadership" : ""}" data-collapsed="${isCollapsed}" style="--lane-accent: ${section.accent}; --stagger: ${sectionIndex};">
+      <header class="lane-head">
+        <div class="lane-copy">
+          <div class="lane-title-row">
+            <span class="lane-title-icon" aria-hidden="true">${renderIcon(sectionVisual.icon)}</span>
+            <h2 class="lane-title">${section.title}</h2>
+          </div>
+        </div>
+        ${toggleMarkup}
       </header>
-      <div id="${laneContentId}" class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}">
+      <div id="${laneContentId}" class="lane-grid${section.groups.length === 1 ? " lane-grid-single" : ""}"${isCollapsed ? " hidden" : ""}>
         ${section.groups.map((group) => renderGroup(group, section.label, sectionId)).join("")}
       </div>
     </section>
@@ -596,9 +661,44 @@ function renderExplorer() {
     return;
   }
 
-  explorer.innerHTML = portfolioSections
-    .map((section, sectionIndex) => renderLane(section, sectionIndex))
-    .join("");
+  const output = [];
+
+  for (let index = 0; index < portfolioSections.length; index += 1) {
+    const section = portfolioSections[index];
+    const sectionId = section.id || slugify(section.label);
+    const nextSection = portfolioSections[index + 1];
+    const nextSectionId = nextSection ? (nextSection.id || slugify(nextSection.label)) : null;
+
+    if (sectionId === "leadership" && nextSectionId === "contact") {
+      const writingCta = `
+        <a class="lane lane-compact lane-half lane-cta" href="writing/index.html">
+          <div class="lane-cta-inner">
+            <span class="lane-cta-icon" aria-hidden="true">${renderIcon("book")}</span>
+            <div class="lane-cta-copy">
+              <p class="lane-cta-label">Writing</p>
+              <h3 class="lane-cta-title">Go read my writing</h3>
+            </div>
+            <span class="lane-cta-arrow" aria-hidden="true">${renderIcon("arrow")}</span>
+          </div>
+        </a>
+      `;
+      output.push(`
+        <div class="lane-row">
+          ${renderLane(section, index)}
+          <div class="lane-column">
+            ${renderLane(nextSection, index + 1)}
+            ${writingCta}
+          </div>
+        </div>
+      `);
+      index += 1;
+      continue;
+    }
+
+    output.push(renderLane(section, index));
+  }
+
+  explorer.innerHTML = output.join("");
 }
 
 function initializeGroupToggles() {
@@ -631,6 +731,33 @@ function initializeLaneToggles() {
       const controlsId = button.getAttribute("aria-controls");
       const content = controlsId ? document.getElementById(controlsId) : null;
       const isExpanded = button.getAttribute("aria-expanded") === "true";
+      const lane = button.closest(".lane");
+
+      button.setAttribute("aria-expanded", String(!isExpanded));
+
+      if (content) {
+        content.hidden = isExpanded;
+      }
+
+      if (lane) {
+        lane.dataset.collapsed = String(isExpanded);
+      }
+    });
+  });
+}
+
+function initializeItemToggles() {
+  if (!explorer) {
+    return;
+  }
+
+  explorer.querySelectorAll("[data-item-toggle]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const controlsId = button.getAttribute("aria-controls");
+      const content = controlsId ? document.getElementById(controlsId) : null;
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
 
       button.setAttribute("aria-expanded", String(!isExpanded));
 
@@ -644,6 +771,7 @@ function initializeLaneToggles() {
 renderExplorer();
 initializeLaneToggles();
 initializeGroupToggles();
+initializeItemToggles();
 
 if (typeof initializeRailNavigation === "function") {
   initializeRailNavigation();
