@@ -2217,19 +2217,30 @@ html[data-theme="dark"] .meta-row > span {
 }
 
 @media (max-width: 1024px) {
-  .hero-layout {
+  .home-layout {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "hero"
+      "board"
+      "main";
   }
 
   .hero-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "writing featured"
-      "status status";
+      "writing featured";
   }
 
   .lane-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lane-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lane-column {
+    grid-template-rows: auto;
   }
 
   .card-grid {
@@ -2346,16 +2357,19 @@ html[data-theme="dark"] .meta-row > span {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "writing"
-      "featured"
-      "status";
-  }
-
-  .signal-card-status .signal-card-details {
-    grid-template-columns: minmax(0, 1fr);
+      "featured";
   }
 
   .lane {
     padding: 18px 16px;
+  }
+
+  .lane-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lane-column {
+    grid-template-rows: auto;
   }
 
   .lane-head {
