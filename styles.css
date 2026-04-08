@@ -249,10 +249,10 @@ input {
   transition: left 180ms ease;
 }
 
-.side-rail:hover .rail-nav::before,
-.side-rail:hover .rail-nav::after,
-.side-rail:focus-within .rail-nav::before,
-.side-rail:focus-within .rail-nav::after {
+.side-rail-shell:hover .rail-nav::before,
+.side-rail-shell:hover .rail-nav::after,
+.side-rail-shell:focus-within .rail-nav::before,
+.side-rail-shell:focus-within .rail-nav::after {
   left: calc(17px - 0.5px);
 }
 
