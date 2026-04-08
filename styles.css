@@ -292,8 +292,8 @@ input {
     border-color 180ms ease;
 }
 
-.side-rail:hover .rail-link,
-.side-rail:focus-within .rail-link {
+.side-rail-shell:hover .rail-link,
+.side-rail-shell:focus-within .rail-link {
   grid-template-columns: 10px minmax(0, 1fr);
   justify-content: stretch;
   gap: 10px;
@@ -339,8 +339,8 @@ input {
     transform 180ms ease;
 }
 
-.side-rail:hover .rail-link-text,
-.side-rail:focus-within .rail-link-text {
+.side-rail-shell:hover .rail-link-text,
+.side-rail-shell:focus-within .rail-link-text {
   max-width: 190px;
   opacity: 0.78;
 }
@@ -359,17 +359,17 @@ input {
   transform: translateX(-2px);
 }
 
-.side-rail:not(:hover):not(:focus-within) .rail-link,
-.side-rail:not(:hover):not(:focus-within) .rail-link:hover,
-.side-rail:not(:hover):not(:focus-within) .rail-link:focus-visible,
-.side-rail:not(:hover):not(:focus-within) .rail-link.is-active {
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link,
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link:hover,
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link:focus-visible,
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link.is-active {
   transform: none;
   border-color: transparent;
   background: transparent;
 }
 
-.side-rail:not(:hover):not(:focus-within) .rail-link .rail-link-text,
-.side-rail:not(:hover):not(:focus-within) .rail-link.is-active .rail-link-text {
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link .rail-link-text,
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link.is-active .rail-link-text {
   max-width: 0;
   opacity: 0;
 }
@@ -389,20 +389,20 @@ input {
   opacity: 1;
 }
 
-.side-rail:hover .rail-link.is-active .rail-link-text,
-.side-rail:focus-within .rail-link.is-active .rail-link-text,
-.side-rail:hover .rail-link:hover .rail-link-text,
-.side-rail:hover .rail-link:focus-visible .rail-link-text,
-.side-rail:focus-within .rail-link:hover .rail-link-text,
-.side-rail:focus-within .rail-link:focus-visible .rail-link-text {
+.side-rail-shell:hover .rail-link.is-active .rail-link-text,
+.side-rail-shell:focus-within .rail-link.is-active .rail-link-text,
+.side-rail-shell:hover .rail-link:hover .rail-link-text,
+.side-rail-shell:hover .rail-link:focus-visible .rail-link-text,
+.side-rail-shell:focus-within .rail-link:hover .rail-link-text,
+.side-rail-shell:focus-within .rail-link:focus-visible .rail-link-text {
   max-width: 96px;
 }
 
-.side-rail:not(:hover):not(:focus-within) .rail-link .rail-dot {
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link .rail-dot {
   box-shadow: none;
 }
 
-.side-rail:not(:hover):not(:focus-within) .rail-link.is-active .rail-dot {
+.side-rail-shell:not(:hover):not(:focus-within) .rail-link.is-active .rail-dot {
   height: 32px;
   border-color: var(--line-strong);
   background: color-mix(in srgb, var(--ink) 72%, transparent);
@@ -1179,11 +1179,36 @@ html[data-theme="dark"] .meta-row > span {
   padding-bottom: 10px;
 }
 
+.lane-group-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .lane-group-title {
   margin: 0;
   font-size: clamp(21px, 2.5vw, 28px);
   font-weight: 560;
   letter-spacing: -0.03em;
+}
+
+.lane-group-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lane-group-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
+  color: var(--text-soft);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .section {
@@ -1406,7 +1431,7 @@ html[data-theme="dark"] .meta-row > span {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 12px;
-  align-items: start;
+  align-items: center;
 }
 
 .item-top.no-icon {
@@ -1441,9 +1466,19 @@ html[data-theme="dark"] .meta-row > span {
 }
 
 .item-heading {
-  display: grid;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
   gap: 6px;
   min-width: 0;
+}
+
+.lane-compact .item-heading {
+  min-height: 34px;
+}
+
+.item-top.no-icon .item-heading {
+  min-height: 0;
 }
 
 .item-main > .item-subtitle {
@@ -2187,8 +2222,8 @@ html[data-theme="dark"] .meta-row > span {
     border-color: transparent;
   }
 
-  .side-rail:hover .rail-link,
-  .side-rail:focus-within .rail-link,
+  .side-rail-shell:hover .rail-link,
+  .side-rail-shell:focus-within .rail-link,
   .rail-link:hover,
   .rail-link:focus-visible,
   .rail-link.is-active {
