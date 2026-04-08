@@ -48,7 +48,7 @@ Each item can include:
 
 ## How To Add A New Project
 
-1. Add a new item inside the Selected Work section in script.js.
+1. Add a new item inside the Projects section in script.js.
 2. Set its href to a new page inside the details folder.
 3. Create the matching HTML detail page in details/.
 4. Reuse the existing detail-page structure so the design stays consistent.
@@ -63,7 +63,7 @@ Each item can include:
 
 The homepage already includes dedicated sections for:
 
-- selected work
+- projects
 - writing
 - experience
 - education
