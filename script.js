@@ -42,6 +42,53 @@ const portfolioSections = [
             chips: ["simulation", "control", "LangGraph"],
             href: "https://github.com/rogue-socket/AquaTwin-Web",
             external: true
+          }
+        ]
+      },
+      {
+        kicker: "Portfolio prototypes",
+        title: "Interface and archive projects",
+        items: [
+          {
+            title: "Signals Ledger",
+            subtitle: "An internal product interface recast as an editorial ledger for monitoring signals, annotations, and decision context without the visual weight of an operational dashboard.",
+            status: "live",
+            chips: ["product system", "editorial", "interface"],
+            href: "details/signals-ledger.html"
+          },
+          {
+            title: "Atlas of Materials",
+            subtitle: "A searchable reference browser for a materials studio working across samples, provenance, supplier notes, and editorial annotation without falling back to a spreadsheet feel.",
+            status: "live",
+            chips: ["research interface", "metadata", "browse"],
+            href: "details/atlas-of-materials.html"
+          },
+          {
+            title: "Field Notes Archive",
+            subtitle: "A browsing system for interviews, transcripts, workshop notes, and tags designed to feel like an annotated reading room rather than a file dump.",
+            status: "live",
+            chips: ["archive", "research", "notes"],
+            href: "details/field-notes-archive.html"
+          }
+        ]
+      },
+      {
+        kicker: "In progress and adjacent",
+        title: "Builds, notes, and experiments",
+        collapsible: true,
+        collapsed: true,
+        items: [
+          {
+            title: "Framework stack",
+            subtitle: "LangChain, LangGraph, LlamaIndex, Hugging Face agents, and the glue between them.",
+            status: "current",
+            chips: ["LangChain", "LangGraph", "LlamaIndex"]
+          },
+          {
+            title: "Retrieval infrastructure",
+            subtitle: "Vector databases, embeddings, and retrieval layers for production use.",
+            status: "current",
+            chips: ["Qdrant", "Chroma", "embeddings"]
           },
           {
             title: "Doctor Reporting",
