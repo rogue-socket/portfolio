@@ -1,44 +1,15 @@
 const portfolioSections = [
   {
-    label: "Selected Work",
-    title: "Selected Work and Systems",
-    subtitle: "Core runtimes, workflow products, and the infrastructure behind them.",
+    id: "projects",
+    label: "Projects",
+    title: "Projects and What I Am Building",
+    subtitle: "Start here with live systems, then see prototypes, adjacent builds, and current focus.",
     accent: "var(--accent-blue)",
     summary: "ClosedClaw · ForrestRun · Aqua Twin",
     groups: [
       {
-        kicker: "Current direction",
-        title: "What I am building toward",
-        items: [
-          {
-            title: "AI agents and deliberate workflows",
-            subtitle: "Agent systems that are effective, efficient, and production-ready.",
-            status: "current",
-            chips: ["agents", "workflows", "LLMs"]
-          },
-          {
-            title: "Structured reasoning systems",
-            subtitle: "Tool-calling, orchestration, and decision traceability.",
-            status: "current",
-            chips: ["reasoning", "orchestration", "tools"]
-          },
-          {
-            title: "Production-aware LLM backends",
-            subtitle: "Systems that hold up under real usage and real constraints.",
-            status: "current",
-            chips: ["LLM backend", "latency", "reliability"]
-          },
-          {
-            title: "Evaluation pipelines",
-            subtitle: "Measuring output quality when instinct and evidence diverge.",
-            status: "current",
-            chips: ["evaluation", "benchmarks", "RAGAs"]
-          }
-        ]
-      },
-      {
-        kicker: "Systems",
-        title: "Runtimes and infrastructure",
+        kicker: "Start here",
+        title: "Live systems and products",
         items: [
           {
             title: "ClosedClaw",
