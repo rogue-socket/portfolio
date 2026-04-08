@@ -28,24 +28,6 @@ const portfolioSections = [
             external: true
           },
           {
-            title: "Framework stack",
-            subtitle: "LangChain, LangGraph, LlamaIndex, Hugging Face agents, and the glue between them.",
-            status: "current",
-            chips: ["LangChain", "LangGraph", "LlamaIndex"]
-          },
-          {
-            title: "Retrieval infrastructure",
-            subtitle: "Vector databases, embeddings, and retrieval layers for production use.",
-            status: "current",
-            chips: ["Qdrant", "Chroma", "embeddings"]
-          }
-        ]
-      },
-      {
-        kicker: "Applications",
-        title: "Workflow-facing products",
-        items: [
-          {
             title: "MyCompAgent",
             subtitle: "Browser control agent using Playwright CLI with adaptive memory.",
             status: "live",
