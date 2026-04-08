@@ -204,10 +204,14 @@ function initializeRailProgress() {
   function updateProgress() {
     frameId = null;
 
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = scrollHeight > 0
-      ? Math.min(window.scrollY / scrollHeight, 1)
-      : 0;
+    const scrollEl = document.scrollingElement || document.documentElement;
+    const scrollHeight = scrollEl.scrollHeight - scrollEl.clientHeight;
+    const scrollTop = scrollEl.scrollTop || window.scrollY;
+    let progress = scrollHeight > 0 ? Math.min(scrollTop / scrollHeight, 1) : 0;
+
+    if (scrollHeight > 0 && scrollTop >= scrollHeight - 2) {
+      progress = 1;
+    }
 
     railShell.style.setProperty("--rail-progress", progress.toFixed(4));
   }
