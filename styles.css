@@ -213,8 +213,8 @@ input {
     color 180ms ease;
 }
 
-.side-rail:hover .theme-toggle,
-.side-rail:focus-within .theme-toggle {
+.side-rail-shell:hover .theme-toggle,
+.side-rail-shell:focus-within .theme-toggle {
   width: 42px;
   height: 42px;
 }
