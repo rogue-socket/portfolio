@@ -105,13 +105,7 @@ const portfolioSections = [
             chips: ["mobile", "automation"],
             href: "https://github.com/rogue-socket/scroller",
             external: true
-          }
-        ]
-      },
-      {
-        kicker: "Adjacent work",
-        title: "ML foundations and experiments",
-        items: [
+          },
           {
             title: "Real Time VLM Pedagogy",
             subtitle: "Vision and image processing pedagogy for math and guitar learning.",
@@ -143,6 +137,36 @@ const portfolioSections = [
             chips: ["android", "knowledge"],
             href: "https://github.com/rogue-socket/notes_me",
             external: true
+          }
+        ]
+      },
+      {
+        kicker: "Current direction",
+        title: "What I am building right now",
+        items: [
+          {
+            title: "AI agents and deliberate workflows",
+            subtitle: "Agent systems that are effective, efficient, and production-ready.",
+            status: "current",
+            chips: ["agents", "workflows", "LLMs"]
+          },
+          {
+            title: "Structured reasoning systems",
+            subtitle: "Tool-calling, orchestration, and decision traceability.",
+            status: "current",
+            chips: ["reasoning", "orchestration", "tools"]
+          },
+          {
+            title: "Production-aware LLM backends",
+            subtitle: "Systems that hold up under real usage and real constraints.",
+            status: "current",
+            chips: ["LLM backend", "latency", "reliability"]
+          },
+          {
+            title: "Evaluation pipelines",
+            subtitle: "Measuring output quality when instinct and evidence diverge.",
+            status: "current",
+            chips: ["evaluation", "benchmarks", "RAGAs"]
           }
         ]
       }
@@ -251,6 +275,7 @@ const portfolioSections = [
     accent: "var(--accent-rose)",
     summary: "Toastmasters · math · philosophy",
     half: true,
+    collapsed: true,
     groups: [
       {
         title: "Leadership",
@@ -287,15 +312,9 @@ const portfolioSections = [
         title: "Interests",
         hideKicker: true,
         hideSubtitle: true,
+        tags: ["Math", "Physics", "Philosophy", "Music"],
         items: [
-          {
-            title: "",
-            subtitle: "",
-            status: "note",
-            hideTitle: true,
-            hideIcon: true,
-            tags: ["Math", "Physics", "Philosophy", "Music"]
-          }
+          
         ]
       }
     ]
@@ -343,6 +362,7 @@ const portfolioSections = [
 const explorer = document.getElementById("explorer");
 
 const sectionVisualMap = {
+  projects: { icon: "stack" },
   "selected-work": { icon: "stack" },
   writing: { icon: "book" },
   experience: { icon: "briefcase" },
@@ -412,6 +432,7 @@ function getItemIcon(sectionId, item) {
   const keywords = `${item.title} ${(item.chips || []).join(" ")}`.toLowerCase();
 
   switch (sectionId) {
+    case "projects":
     case "selected-work":
       if (keywords.includes("aqua") || keywords.includes("water") || keywords.includes("control")) {
         return "wave";
@@ -565,6 +586,15 @@ function renderGroup(group, sectionLabel, sectionId) {
   const kickerText = group.kicker || sectionLabel;
   const kickerMarkup = group.hideKicker || !kickerText ? "" : `<p class="eyebrow">${kickerText}</p>`;
   const subtitleMarkup = group.hideSubtitle || !group.subtitle ? "" : `<p class="lane-group-note">${group.subtitle}</p>`;
+  const groupTagsMarkup = Array.isArray(group.tags) && group.tags.length
+    ? `<div class="lane-group-tags">${group.tags.map((tag) => `<span class="lane-group-tag">${tag}</span>`).join("")}</div>`
+    : "";
+  const titleRowMarkup = `
+    <div class="lane-group-title-row">
+      <h3 class="lane-group-title">${group.title}</h3>
+      ${groupTagsMarkup}
+    </div>
+  `;
 
   if (isCompact) {
     return `
@@ -588,7 +618,7 @@ function renderGroup(group, sectionLabel, sectionId) {
         >
           <div class="group-copy">
             ${kickerMarkup}
-            <h3 class="lane-group-title">${group.title}</h3>
+            ${titleRowMarkup}
             ${subtitleMarkup}
             <p class="group-preview">${groupPreview}</p>
           </div>
@@ -605,7 +635,7 @@ function renderGroup(group, sectionLabel, sectionId) {
     <section class="lane-group">
       <div class="lane-group-head">
         ${kickerMarkup}
-        <h3 class="lane-group-title">${group.title}</h3>
+        ${titleRowMarkup}
         ${subtitleMarkup}
       </div>
       <div class="group-items">
