@@ -187,8 +187,8 @@ input {
     box-shadow 180ms ease;
 }
 
-.side-rail:hover .side-rail-shell,
-.side-rail:focus-within .side-rail-shell {
+.side-rail-shell:hover,
+.side-rail-shell:focus-within {
   gap: 18px;
   width: var(--rail-expanded-width);
   padding: 16px 10px;
