@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Prompts to Interns | Yash Agrawal</title>
+  <meta
+    name="description"
+    content="A long-form article on the evolution from prompts to agentic AI interns."
+  >
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem("portfolio-theme");
+        const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="detail-page post-page">
+  <aside class="side-rail" aria-label="Page navigation">
+    <div class="side-rail-shell">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span data-theme-label>Switch to dark mode</span>
+      </button>
+      <nav class="rail-nav">
+        <a class="rail-link" href="../index.html" aria-label="Go to home">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Home</span>
+        </a>
+        <a class="rail-link" href="index.html" aria-label="Go to writing archive">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-link-text">Writing</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div id="top" class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="../index.html">Index</a>
+      <span>/</span>
+      <a href="index.html">Writing</a>
+      <span>/</span>
+      <span>From Prompts to Interns</span>
+    </nav>
+
+    <header class="detail-hero">
+      <p class="detail-label">Essay</p>
+      <h1 class="detail-title">From Prompts to Interns</h1>
+      <p class="detail-summary">
+        A long-form article tracing the shift from text prediction models to agentic systems that reason, call tools, and orchestrate complex workflows.
+      </p>
+      <div class="post-meta-row" aria-label="Post metadata">
+        <span><span class="meta-label">Published</span> April 2026</span>
+        <span><span class="meta-label">Format</span> Markdown essay</span>
+        <span><span class="meta-label">Source</span> writing-content</span>
+        <span><span class="meta-label">Length</span> Long read</span>
+      </div>
+      <div class="archive-links" aria-label="Article links">
+        <a href="https://medium.com/@yash.agr1510/from-prompts-to-interns-c5c93b373891" target="_blank" rel="noopener noreferrer">Read this article on Medium</a>
+      </div>
+    </header>
+
+    <main class="detail-main">
+      <article class="post-article md-article" data-md-container>
+        <p class="md-loading">Loading article...</p>
+      </article>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (function () {
+      const sourcePath = "../writing-content/from-promtps-to-interns.md";
+      const articleContainer = document.querySelector("[data-md-container]");
+
+      if (!articleContainer || typeof marked === "undefined") {
+        return;
+      }
+
+      marked.setOptions({
+        mangle: false,
+        headerIds: false
+      });
+
+      fetch(sourcePath, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch markdown article");
+          }
+
+          return response.text();
+        })
+        .then((markdown) => {
+          const parsedHtml = marked.parse(markdown);
+          const renderWrapper = document.createElement("div");
+          renderWrapper.innerHTML = parsedHtml;
+
+          const firstElement = renderWrapper.firstElementChild;
+          const pageTitle = document.querySelector(".detail-title");
+
+          if (firstElement && firstElement.tagName === "H1" && pageTitle) {
+            const normalize = (value) => value.trim().replace(/\s+/g, " ").toLowerCase();
+
+            if (normalize(firstElement.textContent || "") === normalize(pageTitle.textContent || "")) {
+              firstElement.remove();
+            }
+          }
+
+          articleContainer.innerHTML = renderWrapper.innerHTML;
+
+          articleContainer.querySelectorAll("a[href]").forEach((link) => {
+            const href = link.getAttribute("href") || "";
+
+            if (href.startsWith("http://") || href.startsWith("https://")) {
+              link.setAttribute("target", "_blank");
+              link.setAttribute("rel", "noopener noreferrer");
+            }
+          });
+
+          articleContainer.querySelectorAll("img").forEach((image) => {
+            image.loading = "lazy";
+            image.decoding = "async";
+          });
+        })
+        .catch(() => {
+          articleContainer.innerHTML = [
+            "<p>Unable to render the markdown article in this environment.</p>",
+            "<p><a href=\"../writing-content/from-promtps-to-interns.md\">Open the source markdown file</a></p>"
+          ].join("");
+        });
+    }());
+  </script>
+  <script src="../theme.js"></script>
+</body>
+</html>
