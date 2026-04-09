@@ -1,6 +1,8 @@
 const THEME_STORAGE_KEY = "portfolio-theme";
 let cleanupRailNavigation = null;
 let cleanupRailProgress = null;
+let cleanupArticleRailObserver = null;
+let cleanupRailScrollTrap = null;
 
 function getActiveTheme() {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
@@ -188,6 +190,126 @@ function initializeRailNavigation() {
   };
 }
 
+function slugifyHeadingText(value) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function buildArticleRailLinks() {
+  const isPostPage = document.body.classList.contains("post-page");
+  const railNav = document.querySelector(".rail-nav");
+  const article = document.querySelector(".post-article");
+
+  if (!isPostPage || !railNav || !article) {
+    return false;
+  }
+
+  railNav
+    .querySelectorAll("[data-generated-heading-link='true']")
+    .forEach((link) => {
+      link.remove();
+    });
+
+  railNav
+    .querySelectorAll(".rail-link[href^='#']:not([data-generated-heading-link='true'])")
+    .forEach((link) => {
+      link.remove();
+    });
+
+  const headings = Array.from(article.querySelectorAll("h2, h3, h4"));
+  const usedIds = new Map();
+
+  headings.forEach((heading) => {
+    const text = heading.textContent ? heading.textContent.trim() : "";
+    if (!text) {
+      return;
+    }
+
+    const baseSlug = slugifyHeadingText(text) || "section";
+    const nextIndex = (usedIds.get(baseSlug) || 0) + 1;
+    usedIds.set(baseSlug, nextIndex);
+
+    heading.id = nextIndex === 1 ? baseSlug : `${baseSlug}-${nextIndex}`;
+  });
+
+  const fragment = document.createDocumentFragment();
+
+  headings.forEach((heading) => {
+    const text = heading.textContent ? heading.textContent.trim() : "";
+    if (!text || !heading.id) {
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.className = "rail-link";
+    if (heading.tagName === "H3" || heading.tagName === "H4") {
+      link.classList.add("rail-link-sub");
+    }
+
+    link.href = `#${heading.id}`;
+    link.setAttribute("aria-label", `Jump to ${text}`);
+    link.setAttribute("data-generated-heading-link", "true");
+
+    const dot = document.createElement("span");
+    dot.className = "rail-dot";
+    dot.setAttribute("aria-hidden", "true");
+
+    const label = document.createElement("span");
+    label.className = "rail-link-text";
+    label.textContent = text.length > 38 ? `${text.slice(0, 35).trimEnd()}...` : text;
+    label.title = text;
+
+    link.append(dot, label);
+    fragment.append(link);
+  });
+
+  railNav.append(fragment);
+  return true;
+}
+
+function initializeArticleRailLinks() {
+  if (typeof cleanupArticleRailObserver === "function") {
+    cleanupArticleRailObserver();
+    cleanupArticleRailObserver = null;
+  }
+
+  const isPostPage = document.body.classList.contains("post-page");
+  const article = document.querySelector(".post-article");
+
+  if (!isPostPage || !article) {
+    return;
+  }
+
+  buildArticleRailLinks();
+
+  if (!("MutationObserver" in window)) {
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    if (!buildArticleRailLinks()) {
+      return;
+    }
+
+    initializeRailNavigation();
+    initializeRailProgress();
+  });
+
+  observer.observe(article, {
+    childList: true,
+    subtree: true
+  });
+
+  cleanupArticleRailObserver = () => {
+    observer.disconnect();
+  };
+}
+
 function initializeRailProgress() {
   if (typeof cleanupRailProgress === "function") {
     cleanupRailProgress();
@@ -239,6 +361,41 @@ function initializeRailProgress() {
   };
 }
 
+function initializeRailScrollTrap() {
+  if (typeof cleanupRailScrollTrap === "function") {
+    cleanupRailScrollTrap();
+    cleanupRailScrollTrap = null;
+  }
+
+  const isPostPage = document.body.classList.contains("post-page");
+  const railNav = document.querySelector(".rail-nav");
+
+  if (!isPostPage || !railNav) {
+    return;
+  }
+
+  const handleWheel = (event) => {
+    if (!railNav.contains(event.target)) {
+      return;
+    }
+
+    if (railNav.scrollHeight <= railNav.clientHeight) {
+      return;
+    }
+
+    event.preventDefault();
+    railNav.scrollTop += event.deltaY;
+  };
+
+  railNav.addEventListener("wheel", handleWheel, { passive: false });
+
+  cleanupRailScrollTrap = () => {
+    railNav.removeEventListener("wheel", handleWheel);
+  };
+}
+
 initializeThemeToggle();
+initializeArticleRailLinks();
 initializeRailNavigation();
 initializeRailProgress();
+initializeRailScrollTrap();
